@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thần Nông Store - Project Presentation</title>
+    <!-- Reveal.js CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/league.min.css" id="theme">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+            text-transform: none;
+            font-family: 'Playfair Display', serif;
+        }
+        .reveal .slide-background {
+            background-color: #285192;
+            background-image: linear-gradient(135deg, #162d50 0%, #285192 100%);
+        }
+        .feature-list {
+            text-align: left;
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+        .highlight { color: #f4a021; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            
+            <!-- Slide 1: Tiêu đề -->
+            <section>
+                <h2>Đồ án Capstone: Cửa hàng Trực tuyến</h2>
+                <h1 style="color: #f4a021; font-weight: bold; font-size: 4rem; margin: 20px 0;">THẦN NÔNG STORE</h1>
+                <p>Nền tảng thương mại điện tử chuyên cung cấp Thảo Dược & Nông Sản Thiên Nhiên.</p>
+                <br>
+                <div style="font-size: 1.2rem; color: #ccc;">
+                    <p><b>Học viên:</b> [Tên của bạn]</p>
+                    <p><b>Mã SV:</b> [Mã SV của bạn]</p>
+                </div>
+            </section>
+
+            <!-- Slide 2: Mục tiêu dự án -->
+            <section>
+                <h3>1. Tổng quan & Mục tiêu</h3>
+                <ul class="feature-list">
+                    <li><i class="fas fa-bullseye highlight"></i> <b>Mục tiêu:</b> Xây dựng hoàn chỉnh một ứng dụng Web Full-stack phục vụ việc bán hàng trực tuyến với trải nghiệm mượt mà.</li>
+                    <li><i class="fas fa-users highlight"></i> <b>Đối tượng:</b>
+                        <ul>
+                            <li>Khách hàng: Mua sắm, đánh giá, xem lịch sử mua hàng.</li>
+                            <li>Quản trị viên (Admin): Quản lý Sản phẩm, Khách hàng, Đơn hàng, Thống kê doanh thu.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Slide 3: Công nghệ sử dụng -->
+            <section>
+                <h3>2. Công nghệ sử dụng</h3>
+                <div style="display: flex; justify-content: space-around; margin-top: 40px;">
+                    <div>
+                        <h4 class="highlight">Frontend</h4>
+                        <ul style="font-size:1.2rem;">
+                            <li>HTML5, CSS3, Vanilla JS</li>
+                            <li>Bootstrap 5</li>
+                            <li>AdminLTE 3.2 (Dashboard)</li>
+                            <li>Chart.js & SheetJS</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="highlight">Backend</h4>
+                        <ul style="font-size:1.2rem;">
+                            <li>Java Spring Boot</li>
+                            <li>Spring Security & JWT</li>
+                            <li>Hibernate / Spring Data JPA</li>
+                            <li>MySQL (Aiven Cloud)</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 4: Tính năng chính - Khách hàng -->
+            <section>
+                <h3>3. Chức năng Dành cho Khách hàng</h3>
+                <ul class="feature-list">
+                    <li>🛍️ Khám phá, lọc và tìm kiếm sản phẩm.</li>
+                    <li>🛒 Quản lý Giỏ hàng thông minh (Thêm/Sửa/Xóa).</li>
+                    <li>📝 Đặt hàng (Checkout) với cơ chế tự động nhận diện và cập nhật thông tin qua Số Điện Thoại.</li>
+                    <li>⭐ Đánh giá và viết Review sản phẩm.</li>
+                    <li>📦 Xem lại Lịch sử Đơn hàng và trạng thái đơn.</li>
+                </ul>
+            </section>
+
+            <!-- Slide 5: Tính năng chính - Admin -->
+            <section>
+                <h3>4. Chức năng Dành cho Admin</h3>
+                <ul class="feature-list">
+                    <li><i class="fas fa-boxes highlight"></i> <b>Sản phẩm:</b> Thêm, Sửa, Xóa, Upload Ảnh.</li>
+                    <li><i class="fas fa-users highlight"></i> <b>Khách hàng:</b> Quản lý danh sách, Xem lịch sử mua hàng, Xóa khách hàng.</li>
+                    <li><i class="fas fa-file-invoice highlight"></i> <b>Đơn hàng:</b> Tạo đơn hàng nội bộ, Cập nhật chi tiết Sản phẩm trong đơn, Đổi trạng thái.</li>
+                    <li><i class="fas fa-chart-bar highlight"></i> <b>Thống kê:</b> Báo cáo Doanh thu, Báo cáo Khách hàng VIP. Vẽ biểu đồ và Xuất file Excel.</li>
+                    <li><i class="fas fa-star highlight"></i> <b>Kiểm duyệt:</b> Quản lý và Xóa các Đánh giá vi phạm.</li>
+                </ul>
+            </section>
+
+            <!-- Slide 6: Cấu trúc Cơ sở dữ liệu -->
+            <section>
+                <h3>5. Cấu trúc Database (ERD)</h3>
+                <p style="font-size:1.1rem;">Tuân thủ cấu trúc chuẩn, gồm 9 bảng chính:</p>
+                <div style="font-size:1rem; text-align: left; display: inline-block;">
+                    <ul>
+                        <li><b>products</b>, <b>product_lines</b>: Quản lý mặt hàng.</li>
+                        <li><b>customers</b>: Quản lý khách hàng.</li>
+                        <li><b>orders</b>, <b>order_details</b>: Hệ thống đặt hàng.</li>
+                        <li><b>reviews</b>: Đánh giá sản phẩm.</li>
+                        <li><b>users</b>, <b>roles</b>: Định danh và phân quyền hệ thống.</li>
+                        <li><b>payments</b>, <b>employees</b>, <b>offices</b>: (Tích hợp mở rộng).</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Slide 7: Lời cảm ơn -->
+            <section>
+                <h1 style="color: #f4a021; font-weight: bold; margin-bottom: 30px;">Cảm ơn Thầy Cô</h1>
+                <p>Đã quan tâm theo dõi bản trình bày dự án.</p>
+                <br>
+                <a href="index.html" class="highlight" style="text-decoration: underline;">&larr; Quay lại Cửa hàng</a>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Reveal.js Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.js"></script>
+    <script>
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            center: true,
+            hash: true,
+            transition: 'slide' // none/fade/slide/convex/concave/zoom
+        });
+    </script>
+</body>
+</html>
