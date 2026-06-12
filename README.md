@@ -22,7 +22,7 @@ Dự án Capstone xây dựng website thương mại điện tử chuyên cung c
 
 ## 🖥️ Slide Trình Bày Dự Án
 Vui lòng mở file dưới đây trên trình duyệt để xem slide thuyết trình dự án:
-**👉 [Xem Slide Trình Bày](ThanNong-frontend/slide.html)**
+**👉 [Xem Slide Trình Bày](https://onlinestore24.pages.dev/slide.html)**
 
 ## 🛠️ Công nghệ sử dụng
 - **Frontend:** HTML5, CSS3, Vanilla JS, Bootstrap 5, AdminLTE 3.2, Chart.js, SheetJS, Reveal.js.

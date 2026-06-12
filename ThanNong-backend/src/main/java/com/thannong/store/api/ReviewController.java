@@ -97,6 +97,7 @@ public class ReviewController {
             customer = new Customer();
             customer.setFirstName(user.getUsername());
             customer.setLastName("");
+            customer.setPhoneNumber("USER_" + user.getUsername() + "_" + System.currentTimeMillis());
             customer = customerRepository.save(customer);
 
             user.setCustomerId(customer.getId());
