@@ -28,6 +28,9 @@ public class UserPrincipal implements UserDetails {
     /** Danh sách quyền được chuyển từ Role */
     private final Collection<? extends GrantedAuthority> authorities;
 
+    /** ID khách hàng liên kết */
+    private final Integer customerId;
+
     /**
      * Khởi tạo UserPrincipal từ entity User.
      * Chuyển đổi Set<Role> → Collection<GrantedAuthority>.
@@ -38,6 +41,7 @@ public class UserPrincipal implements UserDetails {
         this.userId   = user.getId();
         this.username = user.getUsername();
         this.password = user.getPassword();
+        this.customerId = user.getCustomerId();
         // Chuyển mỗi role.name → SimpleGrantedAuthority
         this.authorities = user.getRoles().stream()
                 .map(role -> new SimpleGrantedAuthority(role.getName()))

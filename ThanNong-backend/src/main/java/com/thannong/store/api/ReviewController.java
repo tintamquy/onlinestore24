@@ -75,12 +75,40 @@ public class ReviewController {
      * @param reviewDto DTO chứa customerId, productId, rating, comment
      * @return ReviewDto đã lưu
      */
+    @Autowired
+    private com.thannong.store.repository.UserRepository userRepository;
+
     @PostMapping
     @PreAuthorize("hasAnyRole('CUSTOMER', 'ADMIN')")
     public ResponseEntity<?> addReview(@RequestBody ReviewDto reviewDto) {
+        // Lấy thông tin user đang đăng nhập
+        Object principal = org.springframework.security.core.context.SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (!(principal instanceof com.thannong.store.security.UserPrincipal)) {
+            return ResponseEntity.status(401).body("Chưa đăng nhập");
+        }
+        com.thannong.store.security.UserPrincipal userPrincipal = (com.thannong.store.security.UserPrincipal) principal;
+
+        com.thannong.store.entity.User user = userRepository.findById(userPrincipal.getUserId())
+                .orElseThrow(() -> new RuntimeException("Không tìm thấy User"));
+
+        Customer customer;
+        if (user.getCustomerId() == null) {
+            // Chưa từng mua hàng -> tạo Customer ảo để review
+            customer = new Customer();
+            customer.setFirstName(user.getUsername());
+            customer.setLastName("");
+            customer = customerRepository.save(customer);
+
+            user.setCustomerId(customer.getId());
+            userRepository.save(user);
+        } else {
+            customer = customerRepository.findById(user.getCustomerId())
+                    .orElseThrow(() -> new RuntimeException("Không tìm thấy khách hàng"));
+        }
+
         // Kiểm tra khách hàng đã review SP này chưa
         if (reviewRepository.existsByCustomerIdAndProductId(
-                reviewDto.getCustomerId(), reviewDto.getProductId())) {
+                customer.getId(), reviewDto.getProductId())) {
             return ResponseEntity.badRequest()
                     .body("Bạn đã đánh giá sản phẩm này rồi");
         }
@@ -91,8 +119,6 @@ public class ReviewController {
                     .body("Rating phải trong khoảng 1 đến 5 sao");
         }
 
-        Customer customer = customerRepository.findById(reviewDto.getCustomerId())
-                .orElseThrow(() -> new RuntimeException("Không tìm thấy khách hàng"));
         Product product = productRepository.findById(reviewDto.getProductId())
                 .orElseThrow(() -> new RuntimeException("Không tìm thấy sản phẩm"));
 

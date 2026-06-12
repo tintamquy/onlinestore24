@@ -20,6 +20,8 @@ public class LoginResponseDto {
     private String username;
     /** Danh sách vai trò: ["ROLE_ADMIN"] hoặc ["ROLE_CUSTOMER"] */
     private List<String> roles;
-    /** ID khách hàng liên kết (null nếu là ADMIN) */
+    /** ID khách hàng liên kết (null nếu là ADMIN hoặc chưa có) */
     private Integer customerId;
+    /** ID của user đăng nhập */
+    private Long userId;
 }

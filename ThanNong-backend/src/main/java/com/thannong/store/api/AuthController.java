@@ -95,12 +95,12 @@ public class AuthController {
                 .map(auth -> auth.getAuthority())
                 .collect(Collectors.toList());
 
-        // TODO: Lấy customerId nếu là ROLE_CUSTOMER (cần thêm vào User entity)
         LoginResponseDto response = new LoginResponseDto(
                 jwtToken,
                 userPrincipal.getUsername(),
                 roleNames,
-                null  // customerId — cần query từ User.customerId
+                userPrincipal.getCustomerId(),
+                userPrincipal.getUserId()
         );
 
         return ResponseEntity.ok(response);
