@@ -237,11 +237,12 @@ public class OrderServiceImpl {
         if (orderDto.getStatus() != null) order.setStatus(orderDto.getStatus());
         if (orderDto.getComments() != null) order.setComments(orderDto.getComments());
 
-        if (orderDto.getOrderDetails() != null && !orderDto.getOrderDetails().isEmpty()) {
-            orderDetailRepository.deleteAll(order.getOrderDetails());
-            order.getOrderDetails().clear();
+        List<OrderDetailDto> savedDetailDtos = new ArrayList<>();
 
-            BigDecimal totalAmount = BigDecimal.ZERO;
+        if (orderDto.getOrderDetails() != null && !orderDto.getOrderDetails().isEmpty()) {
+            List<OrderDetail> oldDetails = orderDetailRepository.findByOrderId(order.getId());
+            orderDetailRepository.deleteAll(oldDetails);
+
             for (OrderDetailDto detailDto : orderDto.getOrderDetails()) {
                 Product product = productRepository.findById(detailDto.getProductId())
                         .orElseThrow(() -> new RuntimeException("Không tìm thấy sản phẩm ID: " + detailDto.getProductId()));
@@ -252,18 +253,16 @@ public class OrderServiceImpl {
                 detail.setQuantityOrder(detailDto.getQuantityOrder());
                 detail.setPriceEach(product.getBuyPrice());
 
-                order.getOrderDetails().add(detail);
                 orderDetailRepository.save(detail);
-
-                BigDecimal subTotal = product.getBuyPrice()
-                        .multiply(BigDecimal.valueOf(detailDto.getQuantityOrder()));
-                totalAmount = totalAmount.add(subTotal);
+                savedDetailDtos.add(mapToDetailDto(detail));
             }
-            order.setTotalAmount(totalAmount);
+        } else {
+            savedDetailDtos = orderDetailRepository.findByOrderId(order.getId())
+                    .stream().map(this::mapToDetailDto).collect(Collectors.toList());
         }
 
         orderRepository.save(order);
-        return mapToDto(order);
+        return mapToOrderDto(order, order.getCustomer(), savedDetailDtos);
     }
 
     private OrderDetailDto mapToDetailDto(OrderDetail detail) {
