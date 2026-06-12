@@ -229,6 +229,43 @@ public class OrderServiceImpl {
     }
 
     /** Chuyển OrderDetail entity → OrderDetailDto */
+    @Transactional
+    public OrderDto updateOrder(Integer id, OrderDto orderDto) {
+        Order order = orderRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Không tìm thấy đơn hàng"));
+
+        if (orderDto.getStatus() != null) order.setStatus(orderDto.getStatus());
+        if (orderDto.getComments() != null) order.setComments(orderDto.getComments());
+
+        if (orderDto.getOrderDetails() != null && !orderDto.getOrderDetails().isEmpty()) {
+            orderDetailRepository.deleteAll(order.getOrderDetails());
+            order.getOrderDetails().clear();
+
+            BigDecimal totalAmount = BigDecimal.ZERO;
+            for (OrderDetailDto detailDto : orderDto.getOrderDetails()) {
+                Product product = productRepository.findById(detailDto.getProductId())
+                        .orElseThrow(() -> new RuntimeException("Không tìm thấy sản phẩm ID: " + detailDto.getProductId()));
+
+                OrderDetail detail = new OrderDetail();
+                detail.setOrder(order);
+                detail.setProduct(product);
+                detail.setQuantityOrder(detailDto.getQuantityOrder());
+                detail.setPriceEach(product.getBuyPrice());
+
+                order.getOrderDetails().add(detail);
+                orderDetailRepository.save(detail);
+
+                BigDecimal subTotal = product.getBuyPrice()
+                        .multiply(BigDecimal.valueOf(detailDto.getQuantityOrder()));
+                totalAmount = totalAmount.add(subTotal);
+            }
+            order.setTotalAmount(totalAmount);
+        }
+
+        orderRepository.save(order);
+        return mapToDto(order);
+    }
+
     private OrderDetailDto mapToDetailDto(OrderDetail detail) {
         OrderDetailDto dto = new OrderDetailDto();
         dto.setId(detail.getId());

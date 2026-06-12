@@ -101,4 +101,19 @@ public class OrderController {
         return ResponseEntity.ok(orderService.updateOrderStatus(id, newStatus));
     }
 
+    /**
+     * Admin cAp nhAt toAn bA thA?ng tin ÄÆ¡n hAng.
+     *
+     * @param id       ID ÄÆ¡n hAng
+     * @param orderDto thA?ng tin mE¡i cá§a ÄÆ¡n hAng
+     * @return OrderDto ÄA£ cáp nhát
+     */
+    @PutMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<OrderDto> updateOrder(
+            @PathVariable Integer id,
+            @RequestBody OrderDto orderDto) {
+        return ResponseEntity.ok(orderService.updateOrder(id, orderDto));
+    }
+
 }
