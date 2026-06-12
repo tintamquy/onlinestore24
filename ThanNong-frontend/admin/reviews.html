@@ -79,13 +79,46 @@
 
     async function loadReviews() {
         try {
-            // Demo lấy toàn bộ đánh giá mới nhất (Chưa có API lấy toàn bộ review, tạm gọi API product)
-            // Trong thực tế cần có API /api/reviews
-            document.getElementById('reviewTableBody').innerHTML = `
-                <tr><td colspan="6" class="text-center text-muted py-4">Chức năng đang được cập nhật</td></tr>
-            `;
+            const reviews = await apiRequest('/reviews');
+            const tbody = document.getElementById('reviewTableBody');
+            
+            if (!reviews || reviews.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="6" class="text-center text-muted py-4">Chưa có đánh giá nào.</td></tr>`;
+                return;
+            }
+
+            tbody.innerHTML = reviews.map((r, index) => {
+                let stars = '';
+                for (let i = 0; i < 5; i++) {
+                    stars += i < r.rating ? '<i class="fas fa-star text-warning"></i>' : '<i class="far fa-star text-warning"></i>';
+                }
+                
+                return `
+                <tr>
+                    <td class="text-center text-muted">${index + 1}</td>
+                    <td><strong>${r.productName || 'Sản phẩm ' + r.productId}</strong></td>
+                    <td>${r.customerName || 'KH ' + r.customerId}</td>
+                    <td>${stars}</td>
+                    <td><div style="max-width:300px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" title="${r.comment}">${r.comment}</div></td>
+                    <td class="text-center">
+                        <button class="btn btn-sm btn-danger" onclick="deleteReview(${r.id})"><i class="fas fa-trash"></i> Xóa</button>
+                    </td>
+                </tr>`;
+            }).join('');
         } catch (err) {
             console.error(err);
+            Swal.fire('Lỗi', 'Không thể tải danh sách đánh giá', 'error');
+        }
+    }
+
+    async function deleteReview(id) {
+        if (!confirm('Bạn có chắc muốn xóa đánh giá này?')) return;
+        try {
+            await apiRequest(`/reviews/${id}`, 'DELETE');
+            Swal.fire('Thành công', 'Đã xóa đánh giá', 'success');
+            loadReviews();
+        } catch (e) {
+            Swal.fire('Lỗi', e.message || 'Xóa thất bại', 'error');
         }
     }
 </script>
