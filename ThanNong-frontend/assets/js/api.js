@@ -114,7 +114,11 @@ function logout() {
  */
 function logoutAndRedirect() {
     logout();
-    window.location.href = 'login.html';
+    if (window.location.pathname.includes('/admin/')) {
+        window.location.href = '../login.html';
+    } else {
+        window.location.href = 'login.html';
+    }
 }
 
 // ===== URL ảnh sản phẩm =====
