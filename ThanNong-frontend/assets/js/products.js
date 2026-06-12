@@ -106,7 +106,7 @@ function renderProducts(products) {
         <div class="col-6 col-md-4 fade-in-up" style="animation-delay:${idx * .06}s">
             <div class="product-card">
                 <div class="product-card-img-wrap">
-                    <a href="/product-detail.html?id=${product.id}">
+                    <a href="product-detail.html?id=${product.id}">
                         <img src="${getProductImageUrl(product.imageUrl)}"
                              alt="${product.productName}"
                              loading="lazy"
@@ -116,7 +116,7 @@ function renderProducts(products) {
                 <div class="product-card-body">
                     <div class="product-card-category">${product.productLineName || 'Thảo dược'}</div>
                     <h3 class="product-card-title">
-                        <a href="/product-detail.html?id=${product.id}" class="text-dark text-decoration-none">
+                        <a href="product-detail.html?id=${product.id}" class="text-dark text-decoration-none">
                             ${product.productName}
                         </a>
                     </h3>
