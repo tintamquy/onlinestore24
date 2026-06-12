@@ -2,6 +2,10 @@
 
 Dự án Capstone xây dựng website thương mại điện tử chuyên cung cấp sản phẩm thảo dược và nông sản thiên nhiên.
 
+## 🌐 Link Sản Phẩm & Mã Nguồn
+- **Website Đã Triển Khai (Live):** [https://onlinestore24.pages.dev/](https://onlinestore24.pages.dev/)
+- **Repository Đã Triển Khai (GitLab):** [https://gitlab.com/caoquy120324/onlinestore24](https://gitlab.com/caoquy120324/onlinestore24)
+
 ## 🚀 Tính năng nổi bật
 
 ### Dành cho Khách hàng
