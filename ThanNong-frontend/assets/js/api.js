@@ -4,8 +4,11 @@
  */
 
 // ===== Cấu hình =====
-/** URL gốc của backend API — thay bằng URL production khi deploy */
-const BASE_URL = 'http://localhost:8080/api';
+// Nếu chạy local thì dùng dòng này:
+// const BASE_URL = 'http://localhost:8080/api';
+
+// Đang chạy Backend trên Render:
+const BASE_URL = 'https://onlinestore24.onrender.com/api';
 
 /** Key lưu JWT token trong localStorage */
 const TOKEN_KEY  = 'thanNong_token';
