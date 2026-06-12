@@ -25,4 +25,9 @@ public interface ReviewRepository extends JpaRepository<Review, Long> {
      */
     boolean existsByCustomerIdAndProductId(Integer customerId, Integer productId);
 
+    @org.springframework.data.jpa.repository.Query("SELECT AVG(r.rating) FROM Review r WHERE r.product.id = :productId AND r.deleted = false")
+    Double getAverageRatingByProductId(@org.springframework.data.repository.query.Param("productId") Integer productId);
+
+    @org.springframework.data.jpa.repository.Query("SELECT COUNT(r) FROM Review r WHERE r.product.id = :productId AND r.deleted = false")
+    Long countReviewsByProductId(@org.springframework.data.repository.query.Param("productId") Integer productId);
 }

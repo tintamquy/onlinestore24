@@ -116,4 +116,10 @@ public class OrderController {
         return ResponseEntity.ok(orderService.updateOrder(id, orderDto));
     }
 
+    @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<Void> deleteOrder(@PathVariable Integer id) {
+        orderService.deleteOrder(id);
+        return ResponseEntity.noContent().build();
+    }
 }

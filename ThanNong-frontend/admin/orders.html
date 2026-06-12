@@ -193,6 +193,7 @@
                     <td class="text-center">
                         <button class="btn btn-sm btn-info" onclick="viewOrder(${o.id})" title="Xem/Trạng thái"><i class="fas fa-eye"></i></button>
                         <button class="btn btn-sm btn-primary" onclick="editOrder(${o.id})" title="Sửa chi tiết"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-sm btn-danger" onclick="deleteOrder(${o.id})" title="Xóa đơn hàng"><i class="fas fa-trash"></i></button>
                     </td>
                 </tr>`).join('');
             dtTable = $('#ordersTable').DataTable({
@@ -370,6 +371,17 @@
             Swal.fire('Thành công', 'Đã cập nhật trạng thái đơn hàng', 'success');
             loadOrders();
         } catch (e) { Swal.fire('Lỗi', e.message || 'Cập nhật thất bại', 'error'); }
+    }
+
+    async function deleteOrder(id) {
+        if (!confirm('Bạn có chắc muốn xóa hoàn toàn đơn hàng này không? (Không thể hoàn tác)')) return;
+        try {
+            await apiRequest(`/orders/${id}`, 'DELETE');
+            Swal.fire('Thành công', 'Đã xóa đơn hàng', 'success');
+            loadOrders();
+        } catch (e) {
+            Swal.fire('Lỗi', e.message || 'Không thể xóa đơn hàng', 'error');
+        }
     }
 </script>
 </body>

@@ -105,4 +105,15 @@ public class CustomerController {
         return ResponseEntity.ok(existing);
     }
 
+    @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<?> deleteCustomer(@PathVariable Integer id) {
+        try {
+            customerRepository.deleteById(id);
+            return ResponseEntity.noContent().build();
+        } catch (org.springframework.dao.DataIntegrityViolationException e) {
+            return ResponseEntity.badRequest().body("Không thể xóa khách hàng vì họ có đơn hàng hoặc đánh giá liên quan.");
+        }
+    }
+
 }

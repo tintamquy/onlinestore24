@@ -265,6 +265,15 @@ public class OrderServiceImpl {
         return mapToOrderDto(order, order.getCustomer(), savedDetailDtos);
     }
 
+    @Transactional
+    public void deleteOrder(Integer id) {
+        Order order = orderRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Không tìm thấy đơn hàng ID: " + id));
+        List<OrderDetail> details = orderDetailRepository.findByOrderId(id);
+        orderDetailRepository.deleteAll(details);
+        orderRepository.delete(order);
+    }
+
     private OrderDetailDto mapToDetailDto(OrderDetail detail) {
         OrderDetailDto dto = new OrderDetailDto();
         dto.setId(detail.getId());

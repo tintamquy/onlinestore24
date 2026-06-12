@@ -40,6 +40,9 @@ public class ProductController {
     @Autowired
     private ProductLineRepository productLineRepository;
 
+    @Autowired
+    private com.thannong.store.repository.ReviewRepository reviewRepository;
+
     /** Thư mục lưu ảnh upload (cấu hình trong application.properties) */
     @Value("${app.upload.dir:uploads/products}")
     private String uploadDir;
@@ -219,6 +222,13 @@ public class ProductController {
             dto.setProductLineId(product.getProductLine().getId());
             dto.setProductLineName(product.getProductLine().getProductLine());
         }
+
+        // Fetch rating stats
+        Double avgRating = reviewRepository.getAverageRatingByProductId(product.getId());
+        Long count = reviewRepository.countReviewsByProductId(product.getId());
+        dto.setAverageRating(avgRating != null ? avgRating : 0.0);
+        dto.setReviewCount(count != null ? count : 0L);
+
         return dto;
     }
 
