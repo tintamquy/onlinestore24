@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quáº£n LÃ½ Sáº£n Pháº©m â€” Tháº§n NÃ´ng Admin</title>
+    <title>Quản Lý Sản Phẩm — Thần Nông Admin</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap4.min.css">
@@ -21,8 +21,8 @@
             <li class="nav-item"><a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a></li>
         </ul>
         <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a href="../index.html" class="nav-link text-muted"><i class="fas fa-store me-1"></i>Xem cá»­a hÃ ng</a></li>
-            <li class="nav-item"><a class="nav-link text-danger" href="#" onclick="logoutAndRedirect()"><i class="fas fa-sign-out-alt me-1"></i>ÄÄƒng xuáº¥t</a></li>
+            <li class="nav-item"><a href="../index.html" class="nav-link text-muted"><i class="fas fa-store me-1"></i>Xem cửa hàng</a></li>
+            <li class="nav-item"><a class="nav-link text-danger" href="#" onclick="logoutAndRedirect()"><i class="fas fa-sign-out-alt me-1"></i>Đăng xuất</a></li>
         </ul>
     </nav>
 
@@ -30,18 +30,18 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <a href="dashboard.html" class="brand-link">
             <img src="../assets/images/logo_shop.png" alt="Logo" class="brand-image img-circle elevation-3" onerror="this.style.display='none'">
-            <span class="brand-text font-weight-light">Tháº§n NÃ´ng Admin</span>
+            <span class="brand-text font-weight-light">Thần Nông Admin</span>
         </a>
         <div class="sidebar">
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
                     <li class="nav-item"><a href="dashboard.html" class="nav-link"><i class="nav-icon fas fa-tachometer-alt"></i><p>Dashboard</p></a></li>
-                    <li class="nav-item"><a href="products.html" class="nav-link active"><i class="nav-icon fas fa-box"></i><p>Sáº£n pháº©m</p></a></li>
-                    <li class="nav-item"><a href="customers.html" class="nav-link"><i class="nav-icon fas fa-users"></i><p>KhÃ¡ch hÃ ng</p></a></li>
-                    <li class="nav-item"><a href="orders.html" class="nav-link"><i class="nav-icon fas fa-shopping-bag"></i><p>ÄÆ¡n hÃ ng</p></a></li>
+                    <li class="nav-item"><a href="products.html" class="nav-link active"><i class="nav-icon fas fa-box"></i><p>Sản phẩm</p></a></li>
+                    <li class="nav-item"><a href="customers.html" class="nav-link"><i class="nav-icon fas fa-users"></i><p>Khách hàng</p></a></li>
+                    <li class="nav-item"><a href="orders.html" class="nav-link"><i class="nav-icon fas fa-shopping-bag"></i><p>Đơn hàng</p></a></li>
                     <li class="nav-item"><a href="reviews.html" class="nav-link"><i class="nav-icon fas fa-star"></i><p>Đánh giá</p></a></li>
-                    <li class="nav-item"><a href="report-revenue.html" class="nav-link"><i class="nav-icon fas fa-chart-line"></i><p>BÃ¡o cÃ¡o doanh thu</p></a></li>
-                    <li class="nav-item"><a href="report-customer.html" class="nav-link"><i class="nav-icon fas fa-chart-bar"></i><p>KhÃ¡ch hÃ ng VIP</p></a></li>
+                    <li class="nav-item"><a href="report-revenue.html" class="nav-link"><i class="nav-icon fas fa-chart-line"></i><p>Báo cáo doanh thu</p></a></li>
+                    <li class="nav-item"><a href="report-customer.html" class="nav-link"><i class="nav-icon fas fa-chart-bar"></i><p>Khách hàng VIP</p></a></li>
                 </ul>
             </nav>
         </div>
@@ -52,9 +52,9 @@
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2 align-items-center">
-                    <div class="col-sm-6"><h1 class="m-0">Quáº£n LÃ½ Sáº£n Pháº©m</h1></div>
+                    <div class="col-sm-6"><h1 class="m-0">Quản Lý Sản Phẩm</h1></div>
                     <div class="col-sm-6 text-right">
-                        <button class="btn btn-primary" onclick="openProductModal()"><i class="fas fa-plus me-1"></i>ThÃªm sáº£n pháº©m má»›i</button>
+                        <button class="btn btn-primary" onclick="openProductModal()"><i class="fas fa-plus me-1"></i>Thêm sản phẩm mới</button>
                     </div>
                 </div>
             </div>
@@ -69,12 +69,12 @@
                                 <thead class="table-light">
                                     <tr>
                                         <th>ID</th>
-                                        <th>áº¢nh</th>
-                                        <th>TÃªn sáº£n pháº©m</th>
-                                        <th>MÃ£ SP</th>
-                                        <th>GiÃ¡ bÃ¡n</th>
-                                        <th>Tá»“n kho</th>
-                                        <th>Thao tÃ¡c</th>
+                                        <th>Ảnh</th>
+                                        <th>Tên sản phẩm</th>
+                                        <th>Mã SP</th>
+                                        <th>Giá bán</th>
+                                        <th>Tồn kho</th>
+                                        <th>Thao tác</th>
                                     </tr>
                                 </thead>
                                 <tbody id="productsBody">
@@ -89,12 +89,12 @@
     </div>
 </div>
 
-<!-- Modal ThÃªm/Sá»­a Sáº£n Pháº©m -->
+<!-- Modal Thêm/Sửa Sản Phẩm -->
 <div class="modal fade" id="productModal" tabindex="-1">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-primary text-white">
-                <h5 class="modal-title" id="productModalTitle">ThÃªm Sáº£n Pháº©m Má»›i</h5>
+                <h5 class="modal-title" id="productModalTitle">Thêm Sản Phẩm Mới</h5>
                 <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
@@ -102,39 +102,39 @@
                     <input type="hidden" id="productId">
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label class="form-label small fw-bold">TÃªn sáº£n pháº©m <span class="text-danger">*</span></label>
+                            <label class="form-label small fw-bold">Tên sản phẩm <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" id="productName" required>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label class="form-label small fw-bold">MÃ£ sáº£n pháº©m <span class="text-danger">*</span></label>
+                            <label class="form-label small fw-bold">Mã sản phẩm <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" id="productCode" required>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label class="form-label small fw-bold">Danh má»¥c <span class="text-danger">*</span></label>
+                            <label class="form-label small fw-bold">Danh mục <span class="text-danger">*</span></label>
                             <select class="form-control" id="productLineId" required></select>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label class="form-label small fw-bold">NhÃ  cung cáº¥p <span class="text-danger">*</span></label>
+                            <label class="form-label small fw-bold">Nhà cung cấp <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" id="productVendor" required>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label class="form-label small fw-bold">GiÃ¡ bÃ¡n (VNÄ) <span class="text-danger">*</span></label>
+                            <label class="form-label small fw-bold">Giá bán (VNĐ) <span class="text-danger">*</span></label>
                             <input type="number" class="form-control" id="buyPrice" required min="0">
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label class="form-label small fw-bold">Tá»“n kho <span class="text-danger">*</span></label>
+                            <label class="form-label small fw-bold">Tồn kho <span class="text-danger">*</span></label>
                             <input type="number" class="form-control" id="quantityInStock" required min="0">
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label class="form-label small fw-bold">Quy cÃ¡ch Ä‘Ã³ng gÃ³i</label>
+                            <label class="form-label small fw-bold">Quy cách đóng gói</label>
                             <input type="text" class="form-control" id="productScale" placeholder="VD: 500ml">
                         </div>
                         <div class="col-12 mb-3">
-                            <label class="form-label small fw-bold">MÃ´ táº£ sáº£n pháº©m</label>
+                            <label class="form-label small fw-bold">Mô tả sản phẩm</label>
                             <textarea class="form-control" id="productDescription" rows="4"></textarea>
                         </div>
                         <div class="col-12 mb-3">
-                            <label class="form-label small fw-bold">áº¢nh sáº£n pháº©m</label>
+                            <label class="form-label small fw-bold">Ảnh sản phẩm</label>
                             <div class="input-group">
                                 <input type="file" class="form-control" id="imageFile" accept="image/*">
                             </div>
@@ -146,8 +146,8 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">ÄÃ³ng</button>
-                <button type="button" class="btn btn-primary" id="btnSaveProduct" onclick="saveProduct()">LÆ°u thÃ´ng tin</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-primary" id="btnSaveProduct" onclick="saveProduct()">Lưu thông tin</button>
             </div>
         </div>
     </div>
@@ -173,9 +173,9 @@
         try {
             const list = await apiRequest('/product-lines', 'GET');
             const sel = document.getElementById('productLineId');
-            sel.innerHTML = '<option value="">Chá»n danh má»¥c...</option>' +
+            sel.innerHTML = '<option value="">Chọn danh mục...</option>' +
                 list.map(c => `<option value="${c.id}">${c.productLine}</option>`).join('');
-        } catch (e) { console.error('Lá»—i load danh má»¥c:', e); }
+        } catch (e) { console.error('Lỗi load danh mục:', e); }
     }
 
     async function loadProducts() {
@@ -203,14 +203,14 @@
                 order: [[0, 'desc']]
             });
         } catch (e) {
-            Swal.fire('Lá»—i','KhÃ´ng thá»ƒ táº£i danh sÃ¡ch sáº£n pháº©m','error');
+            Swal.fire('Lỗi','Không thể tải danh sách sản phẩm','error');
         }
     }
 
     function openProductModal() {
         document.getElementById('productForm').reset();
         document.getElementById('productId').value = '';
-        document.getElementById('productModalTitle').textContent = 'ThÃªm Sáº£n Pháº©m Má»›i';
+        document.getElementById('productModalTitle').textContent = 'Thêm Sản Phẩm Mới';
         document.getElementById('imagePreview').classList.add('d-none');
         $('#productModal').modal('show');
     }
@@ -227,7 +227,7 @@
             document.getElementById('quantityInStock').value = p.quantityInStock;
             document.getElementById('productScale').value = p.productScale || '';
             document.getElementById('productDescription').value = p.productDescription || '';
-            document.getElementById('productModalTitle').textContent = 'Sá»­a Sáº£n Pháº©m: ' + p.productName;
+            document.getElementById('productModalTitle').textContent = 'Sửa Sản Phẩm: ' + p.productName;
 
             const preview = document.getElementById('imagePreview');
             if (p.imageUrl) {
@@ -236,7 +236,7 @@
             } else { preview.classList.add('d-none'); }
 
             $('#productModal').modal('show');
-        } catch (e) { Swal.fire('Lá»—i','KhÃ´ng thá»ƒ láº¥y thÃ´ng tin sáº£n pháº©m','error'); }
+        } catch (e) { Swal.fire('Lỗi','Không thể lấy thông tin sản phẩm','error'); }
     }
 
     async function saveProduct() {
@@ -252,17 +252,17 @@
             productDescription: document.getElementById('productDescription').value.trim()
         };
         if(!data.productName || !data.productCode || !data.productLineId || !data.buyPrice || !data.quantityInStock) {
-            Swal.fire('Cáº£nh bÃ¡o','Vui lÃ²ng Ä‘iá»n Ä‘á»§ trÆ°á»ng báº¯t buá»™c','warning'); return;
+            Swal.fire('Cảnh báo','Vui lòng điền đủ trường bắt buộc','warning'); return;
         }
 
         const btn = document.getElementById('btnSaveProduct');
-        btn.disabled = true; btn.textContent = 'Äang lÆ°u...';
+        btn.disabled = true; btn.textContent = 'Đang lưu...';
         try {
             let savedProduct;
             if (id) savedProduct = await apiRequest(`/products/${id}`, 'PUT', data);
             else savedProduct = await apiRequest('/products', 'POST', data);
 
-            // Xá»­ lÃ½ upload áº£nh náº¿u cÃ³ file má»›i
+            // Xử lý upload ảnh nếu có file mới
             const fileInput = document.getElementById('imageFile');
             if (fileInput.files.length > 0) {
                 const formData = new FormData();
@@ -273,34 +273,34 @@
                     headers: { 'Authorization': `Bearer ${token}` },
                     body: formData
                 });
-                if (!uploadRes.ok) throw new Error('Lá»—i upload áº£nh');
+                if (!uploadRes.ok) throw new Error('Lỗi upload ảnh');
                 
                 const uploadData = await uploadRes.json();
-                // Cáº­p nháº­t láº¡i sáº£n pháº©m vá»›i link áº£nh má»›i
+                // Cập nhật lại sản phẩm với link ảnh mới
                 await apiRequest(`/products/${savedProduct.id}`, 'PUT', { ...data, imageUrl: uploadData.imageUrl });
             }
 
             $('#productModal').modal('hide');
-            Swal.fire('ThÃ nh cÃ´ng','ÄÃ£ lÆ°u sáº£n pháº©m','success');
+            Swal.fire('Thành công','Đã lưu sản phẩm','success');
             loadProducts();
         } catch (e) {
-            Swal.fire('Lá»—i', e.message || 'CÃ³ lá»—i xáº£y ra','error');
+            Swal.fire('Lỗi', e.message || 'Có lỗi xảy ra','error');
         } finally {
-            btn.disabled = false; btn.textContent = 'LÆ°u thÃ´ng tin';
+            btn.disabled = false; btn.textContent = 'Lưu thông tin';
         }
     }
 
     function deleteProduct(id) {
         Swal.fire({
-            title:'XÃ³a sáº£n pháº©m?', text:'HÃ nh Ä‘á»™ng nÃ y khÃ´ng thá»ƒ hoÃ n tÃ¡c!', icon:'warning',
-            showCancelButton:true, confirmButtonColor:'#d33', cancelButtonColor:'#3085d6', confirmButtonText:'VÃ¢ng, XÃ³a!'
+            title:'Xóa sản phẩm?', text:'Hành động này không thể hoàn tác!', icon:'warning',
+            showCancelButton:true, confirmButtonColor:'#d33', cancelButtonColor:'#3085d6', confirmButtonText:'Vâng, Xóa!'
         }).then(async (result) => {
             if(result.isConfirmed) {
                 try {
                     await apiRequest(`/products/${id}`, 'DELETE');
-                    Swal.fire('ÄÃ£ xÃ³a','Sáº£n pháº©m Ä‘Ã£ bá»‹ xÃ³a.','success');
+                    Swal.fire('Đã xóa','Sản phẩm đã bị xóa.','success');
                     loadProducts();
-                } catch(e) { Swal.fire('Lá»—i',e.message,'error'); }
+                } catch(e) { Swal.fire('Lỗi',e.message,'error'); }
             }
         });
     }
