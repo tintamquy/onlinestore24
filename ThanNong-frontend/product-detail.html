@@ -240,11 +240,10 @@
         const user = getCurrentUser();
         
         if (!comment) return Swal.fire('Cảnh báo', 'Vui lòng nhập nhận xét', 'warning');
-        if (!user || (!user.id && !user.customerId)) return Swal.fire('Lỗi', 'Thông tin đăng nhập không hợp lệ', 'error');
+        if (!user) return Swal.fire('Lỗi', 'Vui lòng đăng nhập lại để đánh giá', 'error');
 
         try {
             await apiRequest('/reviews', 'POST', {
-                customerId: user.customerId || user.id,
                 productId: productId,
                 rating: rating,
                 comment: comment

@@ -32,6 +32,7 @@ async function handleLogin() {
         // Lưu token và thông tin user vào localStorage
         localStorage.setItem(TOKEN_KEY, response.token);
         localStorage.setItem(USER_KEY, JSON.stringify({
+            id:         response.userId,
             username:   response.username,
             roles:      response.roles,
             customerId: response.customerId
