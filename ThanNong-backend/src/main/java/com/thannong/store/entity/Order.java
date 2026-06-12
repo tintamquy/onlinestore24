@@ -55,4 +55,20 @@ public class Order {
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
+    public Integer getId() { return this.id; }
+    public void setId(Integer id) { this.id = id; }
+    public Date getOrderDate() { return this.orderDate; }
+    public void setOrderDate(Date orderDate) { this.orderDate = orderDate; }
+    public Date getRequiredDate() { return this.requiredDate; }
+    public void setRequiredDate(Date requiredDate) { this.requiredDate = requiredDate; }
+    public Date getShippedDate() { return this.shippedDate; }
+    public void setShippedDate(Date shippedDate) { this.shippedDate = shippedDate; }
+    public String getStatus() { return this.status; }
+    public void setStatus(String status) { this.status = status; }
+    public String getComments() { return this.comments; }
+    public void setComments(String comments) { this.comments = comments; }
+    public Customer getCustomer() { return this.customer; }
+    public void setCustomer(Customer customer) { this.customer = customer; }
+
+
 }
