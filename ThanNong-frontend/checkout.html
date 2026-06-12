@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đặt Hàng — Thần Nông Shop</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+</head>
+<body style="background:#f0f4ff;">
+<!-- NAVBAR -->
+<nav style="background:linear-gradient(135deg,#3b71ca,#285192);padding:.7rem 0;">
+    <div class="container d-flex justify-content-between align-items-center">
+                <a class="navbar-brand d-flex align-items-center" href="index.html" style="text-decoration:none;">
+            <div style="background:#ffffff;border-radius:50%;padding:4px;border:2px solid rgba(255,255,255,.5);margin-right:10px;flex-shrink:0;">
+                <img src="assets/images/logo_shop.png" alt="Thần Nông Logo" style="height:48px;width:48px;object-fit:cover;border-radius:50%;">
+            </div>
+            <div class="d-flex flex-column">
+                <span style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:#ffffff;line-height:1.2;text-shadow:0 2px 4px rgba(0,0,0,.2);">Thần Nông</span>
+                <span style="font-family:'Inter',sans-serif;font-size:.75rem;color:#e2e8f0;font-weight:500;letter-spacing:1px;text-transform:uppercase;">Thảo dược thiên nhiên</span>
+            </div>
+        </a>
+        <div class="d-flex gap-3 text-white-50 small">
+            <span><i class="fas fa-lock me-1"></i>Thanh toán an toàn</span>
+        </div>
+    </div>
+</nav>
+
+<!-- Progress steps -->
+<div style="background:white;border-bottom:1px solid #dee2e6;padding:.75rem 0;">
+    <div class="container">
+        <div class="d-flex justify-content-center gap-4 small">
+            <span style="color:#3b71ca;font-weight:600;"><i class="fas fa-check-circle me-1"></i>Giỏ hàng</span>
+            <span style="color:#3b71ca;font-weight:600;"><i class="fas fa-circle me-1"></i>Thông tin giao hàng</span>
+            <span class="text-muted"><i class="fas fa-circle me-1"></i>Xác nhận</span>
+        </div>
+    </div>
+</div>
+
+<div class="container py-4">
+    <div class="row g-4">
+        <!-- FORM THÔNG TIN GIAO HÀNG -->
+        <div class="col-lg-7">
+            <div class="bg-white rounded-4 shadow-sm border p-4">
+                <h2 style="font-size:1.3rem;font-weight:700;color:#285192;margin-bottom:1.5rem;">
+                    <i class="fas fa-map-marker-alt me-2"></i>Thông Tin Giao Hàng
+                </h2>
+                <div id="alertBox" class="alert d-none"></div>
+                <form id="checkoutForm" novalidate>
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <label class="form-label small fw-bold">Họ <span class="text-danger">*</span></label>
+                            <input type="text" id="lastName" class="form-control" placeholder="Nguyễn" required>
+                        </div>
+                        <div class="col-6">
+                            <label class="form-label small fw-bold">Tên <span class="text-danger">*</span></label>
+                            <input type="text" id="firstName" class="form-control" placeholder="Văn A" required>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label small fw-bold">Số điện thoại <span class="text-danger">*</span></label>
+                            <input type="tel" id="phone" class="form-control" placeholder="0901234567" required>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label small fw-bold">Địa chỉ <span class="text-danger">*</span></label>
+                            <input type="text" id="address" class="form-control" placeholder="Số nhà, tên đường, phường/xã" required>
+                        </div>
+                        <div class="col-6">
+                            <label class="form-label small fw-bold">Thành phố <span class="text-danger">*</span></label>
+                            <input type="text" id="city" class="form-control" placeholder="Hà Nội" required>
+                        </div>
+                        <div class="col-6">
+                            <label class="form-label small fw-bold">Tỉnh / Vùng</label>
+                            <input type="text" id="state" class="form-control" placeholder="Hà Nội">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label small fw-bold">Ghi chú đơn hàng</label>
+                            <textarea id="comments" class="form-control" rows="2" placeholder="Ghi chú cho người giao hàng (tuỳ chọn)"></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" id="placeOrderBtn" onclick="placeOrder(event)"
+                            class="btn w-100 py-3 fw-bold mt-4" style="background:#3b71ca;color:white;border-radius:10px;font-size:1.05rem;">
+                        <i class="fas fa-check-circle me-2"></i>Xác Nhận Đặt Hàng
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- TÓM TẮT ĐƠN HÀNG -->
+        <div class="col-lg-5">
+            <div class="bg-white rounded-4 shadow-sm border p-4" style="position:sticky;top:90px;">
+                <h3 style="font-size:1.1rem;font-weight:700;color:#285192;margin-bottom:1rem;">Đơn hàng của bạn</h3>
+                <div id="orderSummary">
+                    <div class="text-center py-3"><div class="spinner-border spinner-border-sm" style="color:#3b71ca;"></div></div>
+                </div>
+                <hr>
+                <div class="d-flex justify-content-between">
+                    <span class="fw-bold">Tổng cộng:</span>
+                    <span id="orderTotal" class="fw-bold" style="color:#3b71ca;font-size:1.2rem;">0 đ</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/auth.js"></script>
+<script src="assets/js/cart.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const items = getCart();
+        if (!items || items.length === 0) {
+            window.location.href = 'cart.html';
+            return;
+        }
+        renderOrderSummary(items);
+    });
+
+    function renderOrderSummary(items) {
+        let total = 0;
+        const summaryEl = document.getElementById('orderSummary');
+        summaryEl.innerHTML = items.map(item => {
+            const sub = item.buyPrice * item.quantity;
+            total += sub;
+            return `<div class="d-flex justify-content-between align-items-center mb-2 small">
+                <span>${item.productName} <span class="text-muted">x${item.quantity}</span></span>
+                <span class="fw-bold">${formatCurrency(sub)}</span>
+            </div>`;
+        }).join('');
+        document.getElementById('orderTotal').textContent = formatCurrency(total);
+    }
+
+    async function placeOrder(event) {
+        event.preventDefault();
+        const lastName  = document.getElementById('lastName').value.trim();
+        const firstName = document.getElementById('firstName').value.trim();
+        const phone     = document.getElementById('phone').value.trim();
+        const address   = document.getElementById('address').value.trim();
+        const city      = document.getElementById('city').value.trim();
+        if (!lastName||!firstName||!phone||!address||!city) {
+            showMsg('danger','Vui lòng điền đầy đủ thông tin bắt buộc (*)!'); return;
+        }
+        const phoneRegex = /^(0|\+84)[3-9][0-9]{8}$/;
+        if (!phoneRegex.test(phone)) { showMsg('danger','Số điện thoại không hợp lệ!'); return; }
+
+        const btn = document.getElementById('placeOrderBtn');
+        btn.disabled = true;
+        btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Đang xử lý...';
+
+        const cart = getCart();
+        const orderDto = {
+            customerLastName:  lastName,
+            customerFirstName: firstName,
+            customerPhone:     phone,
+            customerAddress:   address,
+            customerCity:      city,
+            customerState:     document.getElementById('state').value.trim(),
+            customerCountry:   'Vietnam',
+            comments:          document.getElementById('comments').value.trim(),
+            orderDetails: cart.map(item => ({
+                productId:     item.productId,
+                quantityOrder: item.quantity,
+                priceEach:     item.buyPrice
+            }))
+        };
+
+        try {
+            const res = await apiRequest('/orders', 'POST', orderDto, false);
+            clearCart();
+            window.location.href = `order-success.html?orderId=${res.id || ''}`;
+        } catch (err) {
+            showMsg('danger', 'Đặt hàng thất bại: ' + (err.message || 'Vui lòng thử lại!'));
+            btn.disabled = false;
+            btn.innerHTML = '<i class="fas fa-check-circle me-2"></i>Xác Nhận Đặt Hàng';
+        }
+    }
+
+    function showMsg(type, msg) {
+        const box = document.getElementById('alertBox');
+        box.className = `alert alert-${type}`;
+        box.innerHTML = `<i class="fas fa-exclamation-circle me-2"></i>${msg}`;
+    }
+</script>
+</body>
+</html>

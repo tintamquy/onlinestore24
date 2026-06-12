@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thần Nông — Shop Mỹ Phẩm Thảo Dược Thiên Nhiên</title>
+    <meta name="description" content="Shop Thần Nông — Mỹ phẩm thảo dược thiên nhiên thuần Việt.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar navbar-expand-lg sticky-top"
+     style="background:linear-gradient(135deg,#3b71ca 0%,#285192 100%)!important;padding:.75rem 0;box-shadow:0 4px 16px rgba(26,86,219,.25);">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+            <!-- Logo trên nền xanh cobalt nổi bật -->
+            <div style="background:#ffffff;border-radius:50%;padding:4px;border:2px solid rgba(255,255,255,.5);margin-right:10px;flex-shrink:0;">
+                <img src="assets/images/logo_shop.png" alt="Logo Thần Nông"
+                     style="height:40px;width:40px;border-radius:50%;object-fit:cover;display:block;"
+                     onerror="this.parentElement.innerHTML='<span style=\'font-size:1.5rem;\'>🌿</span>'">
+            </div>
+            <span style="font-family:'Playfair Display',serif;font-size:1.5rem;color:white;font-weight:700;letter-spacing:.5px;">Thần Nông</span>
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-label="Menu">
+            <i class="fas fa-bars text-white"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item"><a class="nav-link fw-500" href="index.html" style="color:white;">Trang chủ</a></li>
+                <li class="nav-item"><a class="nav-link" href="products.html" style="color:rgba(255,255,255,.85);">Sản phẩm</a></li>
+                <li class="nav-item"><a class="nav-link" href="my-orders.html" style="color:rgba(255,255,255,.85);">Đơn hàng của tôi</a></li>
+            </ul>
+            <div class="d-flex align-items-center gap-3">
+                <a href="cart.html" class="nav-link nav-cart-badge text-white">
+                    <i class="fas fa-shopping-cart fa-lg"></i>
+                    <span id="cartBadge" class="d-none">0</span>
+                </a>
+                <span id="navUserInfo" class="text-white-50 small d-none"></span>
+                <a id="navAdminBtn" href="admin/dashboard.html" class="btn btn-sm btn-outline-light d-none">
+                    <i class="fas fa-cog me-1"></i>Quản trị
+                </a>
+                <a id="navLoginBtn" href="login.html" class="btn btn-sm fw-bold"
+                   style="background:#f4a021;color:white;border:none;border-radius:8px;padding:.4rem 1rem;">
+                    <i class="fas fa-sign-in-alt me-1"></i>Đăng nhập
+                </a>
+                <button id="navLogoutBtn" class="btn btn-sm btn-outline-light d-none" onclick="logoutAndRedirect()">
+                    <i class="fas fa-sign-out-alt me-1"></i>Đăng xuất
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- ===== HERO SECTION ===== -->
+<section style="background:linear-gradient(135deg,#3b71ca 0%,#5488de 55%,#285192 100%);color:white;padding:80px 0 60px;position:relative;overflow:hidden;">
+    <!-- Vòng trang trí nền -->
+    <div style="position:absolute;top:-40%;right:-10%;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.08),transparent 70%);pointer-events:none;"></div>
+    <div style="position:absolute;bottom:-30%;left:-5%;width:350px;height:350px;border-radius:50%;background:radial-gradient(circle,rgba(244,160,33,.1),transparent 70%);pointer-events:none;"></div>
+
+    <div class="container">
+        <div class="row align-items-center g-4">
+            <div class="col-lg-6">
+                <span style="display:inline-block;background:#f4a021;color:white;font-size:.8rem;font-weight:700;padding:.3rem .9rem;border-radius:20px;margin-bottom:1.5rem;letter-spacing:.5px;">
+                    <i class="fas fa-leaf me-1"></i> 100% Thảo Dược Thiên Nhiên
+                </span>
+                <h1 style="font-family:'Playfair Display',serif;font-size:3rem;font-weight:700;line-height:1.2;margin-bottom:1rem;color:white;">
+                    Vẻ Đẹp Từ<br>
+                    <span style="color:#ffd700;">Thiên Nhiên Thuần Việt</span>
+                </h1>
+                <p style="font-size:1.05rem;opacity:.9;margin-bottom:2rem;max-width:480px;">
+                    Bộ sưu tập mỹ phẩm từ các loại thảo mộc quý hiếm,
+                    an toàn cho mọi loại da, không chất bảo quản độc hại.
+                </p>
+                <div class="d-flex gap-3 flex-wrap">
+                    <a href="products.html" class="btn fw-bold"
+                       style="background:white;color:#3b71ca;border-radius:10px;padding:.7rem 1.8rem;box-shadow:0 4px 16px rgba(0,0,0,.15);">
+                        <i class="fas fa-shopping-bag me-2"></i>Mua sắm ngay
+                    </a>
+                    <a href="#featured-products" class="btn btn-outline-light fw-bold" style="border-radius:10px;padding:.7rem 1.5rem;">
+                        Khám phá sản phẩm
+                    </a>
+                </div>
+
+                <!-- Trust badges -->
+                <div class="d-flex gap-4 mt-4 flex-wrap">
+                    <div class="d-flex align-items-center gap-2" style="font-size:.85rem;opacity:.9;">
+                        <i class="fas fa-shield-alt" style="color:#f4a021;"></i> An toàn kiểm chứng
+                    </div>
+                    <div class="d-flex align-items-center gap-2" style="font-size:.85rem;opacity:.9;">
+                        <i class="fas fa-truck" style="color:#f4a021;"></i> Giao hàng toàn quốc
+                    </div>
+                    <div class="d-flex align-items-center gap-2" style="font-size:.85rem;opacity:.9;">
+                        <i class="fas fa-undo" style="color:#f4a021;"></i> Đổi trả 7 ngày
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 text-center">
+                <!-- Ảnh hero: trà thần nông -->
+                <div style="position:relative;display:inline-block;">
+                    <img src="assets/images/hero-product.jpg"
+                         alt="Trà Thần Nông — Sản phẩm thảo dược"
+                         class="img-fluid rounded-4"
+                         style="max-height:430px;object-fit:cover;border:4px solid rgba(255,255,255,.3);box-shadow:0 24px 60px rgba(0,0,0,.3);transform:rotate(1.5deg);"
+                         onerror="this.style.display='none'">
+                    <!-- Badge nổi -->
+                    <div style="position:absolute;bottom:20px;left:-20px;background:white;border-radius:14px;padding:.6rem 1rem;box-shadow:0 8px 24px rgba(0,0,0,.15);font-size:.8rem;">
+                        <span style="color:#f4a021;font-size:1rem;">★★★★★</span><br>
+                        <span style="font-weight:600;color:#3b71ca;">1000+ đánh giá</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CATEGORY TABS ===== -->
+<section class="py-4 bg-white shadow-sm">
+    <div class="container">
+        <div class="category-tabs justify-content-center" id="categoryTabs">
+            <button class="category-tab active" onclick="filterByCategory(null, this)">Tất cả</button>
+        </div>
+    </div>
+</section>
+
+<!-- ===== SẢN PHẨM NỔI BẬT ===== -->
+<section class="py-5" id="featured-products" style="background:#f0f4ff;">
+    <div class="container">
+        <div class="text-center mb-4">
+            <h2 class="section-title text-center">Sản Phẩm Nổi Bật</h2>
+            <p class="text-muted">Được yêu thích và đánh giá cao bởi hàng nghìn khách hàng</p>
+        </div>
+        <div class="row g-4" id="featuredProductsGrid">
+            <div class="col-12 text-center py-5">
+                <div class="spinner-border" style="color:#3b71ca;"></div>
+                <p class="text-muted mt-2 small">Đang tải sản phẩm...</p>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <a href="products.html" class="btn-primary-custom btn">
+                <i class="fas fa-th-large me-2"></i>Xem tất cả sản phẩm
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ===== TẠI SAO CHỌN THẦN NÔNG ===== -->
+<section class="py-5" style="background:white;">
+    <div class="container">
+        <h2 class="section-title text-center mb-5">Tại Sao Chọn Thần Nông?</h2>
+        <div class="row g-4">
+            <div class="col-6 col-md-3 text-center">
+                <div class="p-4 rounded-4 border h-100" style="border-color:#d1d9f0!important;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 8px 24px rgba(26,86,219,.12)'" onmouseout="this.style.boxShadow='none'">
+                    <div class="rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width:60px;height:60px;background:#ebf0ff;color:#3b71ca;font-size:1.4rem;">
+                        <i class="fas fa-seedling"></i></div>
+                    <h5 class="fw-bold fs-6">100% Thảo Dược</h5>
+                    <p class="text-muted small mb-0">Chiết xuất thiên nhiên, an toàn tuyệt đối</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 text-center">
+                <div class="p-4 rounded-4 border h-100" style="border-color:#d1d9f0!important;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 8px 24px rgba(26,86,219,.12)'" onmouseout="this.style.boxShadow='none'">
+                    <div class="rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width:60px;height:60px;background:#fef3c7;color:#f4a021;font-size:1.4rem;">
+                        <i class="fas fa-shield-alt"></i></div>
+                    <h5 class="fw-bold fs-6">An Toàn Kiểm Chứng</h5>
+                    <p class="text-muted small mb-0">Phù hợp cả với da nhạy cảm</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 text-center">
+                <div class="p-4 rounded-4 border h-100" style="border-color:#d1d9f0!important;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 8px 24px rgba(26,86,219,.12)'" onmouseout="this.style.boxShadow='none'">
+                    <div class="rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width:60px;height:60px;background:#ebf0ff;color:#3b71ca;font-size:1.4rem;">
+                        <i class="fas fa-truck"></i></div>
+                    <h5 class="fw-bold fs-6">Giao Hàng Nhanh</h5>
+                    <p class="text-muted small mb-0">Toàn quốc 2-4 ngày làm việc</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 text-center">
+                <div class="p-4 rounded-4 border h-100" style="border-color:#d1d9f0!important;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 8px 24px rgba(26,86,219,.12)'" onmouseout="this.style.boxShadow='none'">
+                    <div class="rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width:60px;height:60px;background:#fef3c7;color:#f4a021;font-size:1.4rem;">
+                        <i class="fas fa-undo"></i></div>
+                    <h5 class="fw-bold fs-6">Đổi Trả Dễ Dàng</h5>
+                    <p class="text-muted small mb-0">Hoàn tiền 100% nếu không hài lòng</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="d-flex align-items-center mb-3">
+                    <div style="background:#ffffff;border-radius:50%;padding:4px;border:2px solid rgba(255,255,255,.4);margin-right:10px;">
+                        <img src="assets/images/logo_shop.png" alt="Logo" style="height:40px;width:40px;border-radius:50%;object-fit:cover;" onerror="this.parentElement.innerHTML='🌿'">
+                    </div>
+                    <span style="font-family:'Playfair Display',serif;font-size:1.3rem;color:white;font-weight:700;">Thần Nông</span>
+                </div>
+                <p class="small">Mỹ phẩm thảo dược thiên nhiên thuần Việt. Vẻ đẹp bền vững từ đất mẹ.</p>
+                <div class="d-flex gap-2 mt-3">
+                    <a href="#" class="btn btn-sm btn-outline-light rounded-circle" style="width:36px;height:36px;padding:0;display:flex;align-items:center;justify-content:center;"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="btn btn-sm btn-outline-light rounded-circle" style="width:36px;height:36px;padding:0;display:flex;align-items:center;justify-content:center;"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="btn btn-sm btn-outline-light rounded-circle" style="width:36px;height:36px;padding:0;display:flex;align-items:center;justify-content:center;"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="col-md-2 mb-4">
+                <h6>Sản phẩm</h6>
+                <ul class="list-unstyled small">
+                    <li><a href="products.html?category=1">Chăm sóc tóc</a></li>
+                    <li><a href="products.html?category=2">Dưỡng da</a></li>
+                    <li><a href="products.html?category=3">Sữa rửa mặt</a></li>
+                    <li><a href="products.html?category=4">Vệ sinh cá nhân</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 mb-4">
+                <h6>Hỗ trợ</h6>
+                <ul class="list-unstyled small">
+                    <li><a href="my-orders.html">Theo dõi đơn hàng</a></li>
+                    <li><a href="#">Chính sách đổi trả</a></li>
+                    <li><a href="#">Hướng dẫn sử dụng</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 mb-4">
+                <h6>Liên hệ</h6>
+                <ul class="list-unstyled small">
+                    <li class="mb-1"><i class="fas fa-phone me-2" style="color:#f4a021;"></i>1900 xxxx</li>
+                    <li class="mb-1"><i class="fas fa-envelope me-2" style="color:#f4a021;"></i>info@thannong.vn</li>
+                    <li><i class="fas fa-map-marker-alt me-2" style="color:#f4a021;"></i>Hà Nội, Việt Nam</li>
+                </ul>
+            </div>
+        </div>
+        <hr class="footer-divider">
+        <div class="text-center small" style="color:rgba(255,255,255,.5);">© 2024 Shop Thần Nông. All rights reserved.</div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/auth.js"></script>
+<script src="assets/js/cart.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', async () => {
+        await loadCategoryTabs();
+        await loadFeaturedProducts();
+        updateNavbar();
+    });
+
+    function updateNavbar() {
+        const user = getCurrentUser();
+        if (user) {
+            document.getElementById('navLoginBtn').classList.add('d-none');
+            document.getElementById('navLogoutBtn').classList.remove('d-none');
+            const info = document.getElementById('navUserInfo');
+            info.textContent = `Xin chào, ${user.username}`;
+            info.classList.remove('d-none');
+            if (isAdmin()) document.getElementById('navAdminBtn').classList.remove('d-none');
+        }
+    }
+
+    async function loadCategoryTabs() {
+        try {
+            const categories = await apiRequest('/product-lines', 'GET', null, false);
+            const container = document.getElementById('categoryTabs');
+            categories.forEach(cat => {
+                const btn = document.createElement('button');
+                btn.className = 'category-tab';
+                btn.textContent = cat.productLine;
+                btn.onclick = () => filterByCategory(cat.id, btn);
+                container.appendChild(btn);
+            });
+        } catch (e) { console.warn('Chưa kết nối Backend:', e.message); }
+    }
+
+    function filterByCategory(id, btn) {
+        document.querySelectorAll('.category-tab').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        loadFeaturedProducts(id);
+    }
+
+    async function loadFeaturedProducts(categoryId = null) {
+        const grid = document.getElementById('featuredProductsGrid');
+        grid.innerHTML = `<div class="col-12 text-center py-4"><div class="spinner-border" style="color:#3b71ca;"></div></div>`;
+        try {
+            let url = '/products?page=0&size=8';
+            if (categoryId) url += `&productLineId=${categoryId}`;
+            const res = await apiRequest(url, 'GET', null, false);
+            if (!res.data || res.data.length === 0) {
+                grid.innerHTML = `<div class="col-12 text-center text-muted py-4"><i class="fas fa-box-open fa-2x mb-2"></i><p>Không có sản phẩm nào</p></div>`;
+                return;
+            }
+            grid.innerHTML = res.data.map((p, i) => `
+                <div class="col-6 col-md-4 col-lg-3 fade-in-up" style="animation-delay:${i*.08}s">
+                    <div class="product-card">
+                        <div class="product-card-img-wrap">
+                            <a href="product-detail.html?id=${p.id}">
+                                <img src="${getProductImageUrl(p.imageUrl)}" alt="${p.productName}"
+                                     loading="lazy" onerror="this.src='assets/images/products/placeholder.jpg'">
+                            </a>
+                        </div>
+                        <div class="product-card-body">
+                            <div class="product-card-category">${p.productLineName || 'Thảo dược'}</div>
+                            <h3 class="product-card-title">
+                                <a href="product-detail.html?id=${p.id}" class="text-dark text-decoration-none">${p.productName}</a>
+                            </h3>
+                            <div class="product-rating">
+                                ${'★'.repeat(Math.round(p.averageRating||5))}${'☆'.repeat(5-Math.round(p.averageRating||5))}
+                                <span class="text-muted small">(${p.reviewCount||0})</span>
+                            </div>
+                            <div class="product-card-price">${formatCurrency(p.buyPrice)}</div>
+                            <button class="btn-add-to-cart"
+                                    onclick="addToCart({id:${p.id},productName:'${p.productName.replace(/'/g,"\\'")}',imageUrl:'${p.imageUrl||''}',buyPrice:${p.buyPrice}})">
+                                <i class="fas fa-cart-plus me-1"></i>Thêm vào giỏ
+                            </button>
+                        </div>
+                    </div>
+                </div>`).join('');
+        } catch (e) {
+            grid.innerHTML = `<div class="col-12 text-center py-4">
+                <div class="alert alert-info mx-auto" style="max-width:400px;">
+                    <i class="fas fa-info-circle me-2"></i>
+                    Chưa kết nối Backend. Vui lòng khởi động Spring Boot để xem sản phẩm.
+                </div></div>`;
+        }
+    }
+</script>
+</body>
+</html>

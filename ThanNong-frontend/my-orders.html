@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đơn Hàng Của Tôi — Thần Nông</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+</head>
+<body>
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg sticky-top" style="background:linear-gradient(135deg,#3b71ca,#285192)!important;padding:.7rem 0;">
+    <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="index.html" style="text-decoration:none;">
+            <div style="background:#ffffff;border-radius:50%;padding:4px;border:2px solid rgba(255,255,255,.5);margin-right:10px;flex-shrink:0;">
+                <img src="assets/images/logo_shop.png" alt="Thần Nông Logo" style="height:48px;width:48px;object-fit:cover;border-radius:50%;">
+            </div>
+            <div class="d-flex flex-column">
+                <span style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:#ffffff;line-height:1.2;text-shadow:0 2px 4px rgba(0,0,0,.2);">Thần Nông</span>
+                <span style="font-family:'Inter',sans-serif;font-size:.75rem;color:#e2e8f0;font-weight:500;letter-spacing:1px;text-transform:uppercase;">Thảo dược thiên nhiên</span>
+            </div>
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+            <i class="fas fa-bars text-white"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="nav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html" style="color:rgba(255,255,255,.85);">Trang chủ</a></li>
+                <li class="nav-item"><a class="nav-link" href="products.html" style="color:rgba(255,255,255,.85);">Sản phẩm</a></li>
+            </ul>
+            <div class="d-flex gap-2">
+                <a href="cart.html" class="btn btn-sm btn-outline-light"><i class="fas fa-cart-shopping me-1"></i>Giỏ hàng</a>
+                <a id="navLoginBtn" href="login.html" class="btn btn-sm" style="background:#f4a021;color:white;border:none;">Đăng nhập</a>
+                <button id="navLogoutBtn" class="btn btn-sm btn-outline-light" style="display:none;" onclick="logoutAndRedirect()">Đăng xuất</button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<div style="background:linear-gradient(135deg,#3b71ca,#285192);padding:2rem 0;color:white;">
+    <div class="container">
+        <h1 style="font-family:'Playfair Display',serif;font-size:1.8rem;margin-bottom:.25rem;">
+            <i class="fas fa-box me-2"></i>Tra Cứu Đơn Hàng
+        </h1>
+        <p class="mb-0 small" style="opacity:.8;">Nhập số điện thoại để xem lại lịch sử đơn hàng</p>
+    </div>
+</div>
+
+<div class="container py-4">
+    <!-- TÌM KIẾM ĐƠN HÀNG -->
+    <div class="card border-0 shadow-sm rounded-4 mb-4">
+        <div class="card-body p-4">
+            <div class="row g-2 align-items-end">
+                <div class="col-sm-8">
+                    <label class="form-label small fw-bold">Số điện thoại đặt hàng</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-phone" style="color:#3b71ca;"></i></span>
+                        <input type="tel" id="phoneInput" class="form-control"
+                               placeholder="0901234567" maxlength="11"
+                               onkeydown="if(event.key==='Enter') lookupOrders()">
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <button class="btn w-100 py-2 fw-bold" style="background:#3b71ca;color:white;border-radius:8px;" onclick="lookupOrders()">
+                        <i class="fas fa-search me-2"></i>Tra cứu
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- KẾT QUẢ -->
+    <div id="ordersResult"></div>
+</div>
+
+<footer style="background:linear-gradient(135deg,#285192,#162d50);color:rgba(255,255,255,.8);padding:1.5rem 0;margin-top:3rem;">
+    <div class="container text-center small">© 2024 Shop Thần Nông</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/auth.js"></script>
+<script>
+    const statusLabel = { PENDING:'Chờ xác nhận', CONFIRMED:'Đã xác nhận', SHIPPED:'Đang giao', DONE:'Hoàn thành', CANCELLED:'Đã hủy' };
+    const statusColor = { PENDING:'warning', CONFIRMED:'info', SHIPPED:'primary', DONE:'success', CANCELLED:'danger' };
+
+    document.addEventListener('DOMContentLoaded', () => {
+        if (isLoggedIn()) {
+            document.getElementById('navLoginBtn').style.display = 'none';
+            document.getElementById('navLogoutBtn').style.display = 'inline-block';
+        }
+    });
+
+    async function lookupOrders() {
+        const phone = document.getElementById('phoneInput').value.trim();
+        if (!phone || phone.length < 9) {
+            showAlert('warning','Vui lòng nhập số điện thoại hợp lệ!'); return;
+        }
+        const resultEl = document.getElementById('ordersResult');
+        resultEl.innerHTML = `<div class="text-center py-4"><div class="spinner-border" style="color:#3b71ca;"></div><p class="mt-2 text-muted small">Đang tra cứu...</p></div>`;
+        try {
+            const orders = await apiRequest(`/orders/by-phone?phone=${encodeURIComponent(phone)}`, 'GET', null, false);
+            if (!orders || orders.length === 0) {
+                resultEl.innerHTML = `<div class="alert alert-info text-center">
+                    <i class="fas fa-info-circle me-2"></i>
+                    Không tìm thấy đơn hàng nào với số điện thoại <strong>${phone}</strong>
+                </div>`;
+                return;
+            }
+            resultEl.innerHTML = `<h6 class="text-muted mb-3">Tìm thấy <strong>${orders.length}</strong> đơn hàng cho SĐT ${phone}</h6>` +
+                orders.map(order => `
+                    <div class="card border-0 shadow-sm rounded-4 mb-3">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-3">
+                                <div>
+                                    <span class="fw-bold" style="color:#285192;">Đơn hàng #${order.id}</span>
+                                    <div class="text-muted small mt-1"><i class="fas fa-calendar me-1"></i>${formatDate(order.orderDate)}</div>
+                                </div>
+                                <span class="badge bg-${statusColor[order.status] || 'secondary'}">${statusLabel[order.status] || order.status}</span>
+                            </div>
+                            ${order.orderDetails ? `
+                            <div class="mb-3">
+                                ${order.orderDetails.map(d => `
+                                    <div class="d-flex justify-content-between small py-1 border-bottom">
+                                        <span>${d.productName} <span class="text-muted">x${d.quantityOrder}</span></span>
+                                        <span class="fw-bold">${formatCurrency(d.subTotal || d.priceEach * d.quantityOrder)}</span>
+                                    </div>`).join('')}
+                            </div>` : ''}
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="text-muted small"><i class="fas fa-map-marker-alt me-1"></i>${order.customerCity || ''}</span>
+                                <span class="fw-bold" style="color:#3b71ca;font-size:1.1rem;">${formatCurrency(order.totalAmount)}</span>
+                            </div>
+                        </div>
+                    </div>`).join('');
+        } catch (err) {
+            resultEl.innerHTML = `<div class="alert alert-danger">
+                <i class="fas fa-exclamation-circle me-2"></i>Lỗi tra cứu: ${err.message}
+            </div>`;
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+﻿Found files: ['d:\\Projects\\sanpham\\Task 85 - Capstone - Dß╗▒ ├ín ONLINE STORE24.v3.1.pdf']
+=== TRANG 1 ===
+Capstone project
+Dß╗▒ ├ín ONLINE STORE24
+Task = c├┤ng viß╗çc;
+Task specification = m├┤ tß║ú c├┤ng viß╗çc (─æß║ºu b├ái)
+
+=== TRANG 2 ===
+Y├¬u cß║ºu front-end d├ánh cho kh├ích h├áng (Mockup)
+1. Liß╗çt k├¬ danh mß╗Ñc sß║ún phß║⌐m, dß╗» liß╗çu sß║ún phß║⌐m lß║Ñy tß╗½ back-end.
+2. Chß╗ìn sß║ún phß║⌐m cß║ºn mua v├áo giß╗Å h├áng,
+3. Chß╗ìn nhiß╗üu lß║ºn th├¼ t─âng sß╗æ sß║ún phß║⌐m trong giß╗Å h├áng l├¬n.
+4. Mß╗Ñc giß╗Å h├áng cho ph├⌐p t─âng giß║úm sß╗æ l╞░ß╗úng sß║ún phß║⌐m.
+5. Khi nhß║Ñn n├║t mua h├áng trong mß╗Ñc giß╗Å h├áng sß║╜ tß║ío 1 Order trong c├│ c├íc sß║ún phß║⌐m ─æ├ú
+chß╗ìn, sß╗æ tiß╗ün mß╗ùi loß║íi theo sß╗æ l╞░ß╗úng chß╗ìn v├á tß╗òng tiß╗ün.
+6. Nhß║Ñn n├║t thanh to├ín tß║íi Order th├¼ sß║╜ ra mß╗Ñc nhß║¡p th├┤ng tin ng╞░ß╗¥i mua.
+7. Sau khi nhß║¡p xong dß╗» liß╗çu sß║╜ ─æ╞░ß╗úc l╞░u v├áo DB qua back-end.
+a. Nß║┐u sß╗æ ─æiß╗çn thoß║íi (sdt) cß╗ºa kh├ích tr├╣ng vß╗¢i sdt ─æ├ú c├│ trong DB th├¼ sß║╜ cß║¡p nhß║¡t
+th├┤ng tin kh├ích h├áng ─æ├ú c├│ vß╗¢i sdt ─æ├│ v├á add th├┤ng tin order mß╗¢i n├áy cho kh├ích
+h├áng ─æ├│.
+b. Nß║┐u sdt kh├┤ng tr├╣ng th├¼ tß║ío mß╗¢i kh├ích h├áng v├á oder mß╗¢i trong DB
+
+=== TRANG 3 ===
+Y├¬u cß║ºu front-end d├ánh cho nh├ón vi├¬n/quß║ún l├¡ (AdminLTE)
+1. Cho ph├⌐p th├¬m sß╗¡a x├│a sß║ún phß║⌐m, dß╗» liß╗çu sß║ún phß║⌐m lß║Ñy tß╗½ back-end.
+2. Cho ph├⌐p th├¬m sß╗¡a kh├ích h├áng, dß╗» liß╗çu kh├ích h├áng lß║Ñy tß╗½ back-end.
+3. Cho ph├⌐p th├¬m sß╗¡a order theo kh├ích h├áng, dß╗» liß╗çu order, kh├ích h├áng lß║Ñy tß╗½ back-
+end.
+4. Cho ph├⌐p xem b├ío c├ío order theo tuß║ºn, th├íng.
+a. Xem ─æ╞░ß╗úc dß║íng biß╗âu ─æß╗ô tß╗òng tiß╗ün h├áng ng├áy, h├áng tuß║ºn
+b. Xuß║Ñt ra excel file theo thß╗¥i gian
+5. Cho ph├⌐p xem b├ío c├ío kh├ích h├áng (Bar chart).
+a. Lß╗ìc kh├ích h├áng theo tß╗òng sß╗æ tiß╗ün ─æ├ú mua. Chß╗ìn xuß║Ñt theo nh├│m kh├ích h├áng ra
+excel.
+i. Kh├ích h├áng c├│ tß╗òng tiß╗ün > 50 triß╗çu l├á Bß║ích kim.
+ii. Kh├ích h├áng c├│ tß╗òng tiß╗ün > 20 triß╗çu l├á V├áng.
+iii. Kh├ích h├áng c├│ tß╗òng tiß╗ün > 10 triß╗çu l├á Bß║íc.
+iv. Kh├ích h├áng c├│ tß╗òng tiß╗ün > 5 triß╗çu l├á Vip.
+b. Lß╗ìc kh├ích h├áng theo tß╗òng sß╗æ order ─æ├ú mua
+
+=== TRANG 4 ===
+
+=== TRANG 5 ===
+Y├¬u cß║ºu vß╗ü tiß║┐n ─æß╗Ö
+Ng├áy Tiß║┐n ─æß╗Ö mong muß╗æn Tiß║┐n ─æß╗Ö tß╗æi thiß╗âu
+1 Hiß╗âu dß╗▒ ├ín, tß║ío giao diß╗çn trang chß╗º customer, Hiß╗âu dß╗▒ ├ín, tß║ío giao diß╗çn trang chß╗º, l├ám
+l├ám backend (MySQL), Ho├án th├ánh trang chß╗º backend (clone tß╗½ b├ái MySQL, tß║ío ─æ╞░ß╗úc bß║úng
+tr├¬n PHPMyAdmin)
+2 L├ám giao diß╗çn danh mß╗Ñc sß║ún phß║⌐m: ph├ón trang L├ám giao diß╗çn danh mß╗Ñc sß║ún phß║⌐m
+limit offset, fillter (t├¬n, gi├í, loß║íi, ..)
+3 L├ám giao diß╗çn chi tiß║┐t sß║ún phß║⌐m v├á ─æß║╖t h├áng L├ám giao diß╗çn chi tiß║┐t sß║ún phß║⌐m, giao diß╗çn ─æß║╖t
+(API, backend) h├áng
+Tß║ío 2 project tr├¬n Gitlab (ShopPlus-backend, Tß║ío 2 project tr├¬n Gitlab (ShopPlus-backend,
+ShopPlus-frontend) ShopPlus-frontend)
+4 L├ám giao diß╗çn chi tiß║┐t sß║ún phß║⌐m v├á ─æß║╖t h├áng L├ám giao diß╗çn chi tiß║┐t sß║ún phß║⌐m v├á ─æß║╖t h├áng
+(API, backend) (API, backend)
+5,6,7 Ho├án th├ánh giao diß╗çn Admin Dashboard Ho├án th├ánh giao diß╗çn Admin Dashboard
+L├ám 1 slide tr├¼nh b├áy dß╗▒ ├ín m├á m├¼nh ─æ├ú l├ám. L├ám 1 slide tr├¼nh b├áy dß╗▒ ├ín m├á m├¼nh ─æ├ú l├ám.
+─Éiß╗ün link v├áo file README.MD ─æß╗â v├áo git ─Éiß╗ün link v├áo file README.MD ─æß╗â v├áo git
+
+=== TRANG 6 ===
+Chi tiß║┐t tiß║┐n ─æß╗Ö
+Task Y├¬u cß║ºu Thß╗¥i gian
+1 L├ám chß╗⌐c n─âng quß║ún l├╜ ng╞░ß╗¥i d├╣ng: Kh├ích h├áng, Admin 1 day
+2 L├ám chß╗⌐c n─âng ─æ─âng nhß║¡p, ─æ─âng k├╜ cho ng╞░ß╗¥i d├╣ng (tham khß║úo) 1 day
+3 Ph├ón quyß╗ün hß╗ç thß╗æng (Admin v├áo giao diß╗çn quß║ún trß╗ï, Kh├ích h├áng v├áo giao diß╗çn 1 day
+d├ánh cho kh├ích h├áng)
+4 Xem th├┤ng tin ─æ╞ín h├áng cß╗ºa t├┤i 1 day
+5 Chß╗⌐c n─âng kh├ích h├áng ─æ├ính gi├í sß║ún phß║⌐m ─æ├ú mua (rating) 1 day
+6 Chß╗⌐c n─âng cho kh├ích h├áng viß║┐t review c├íc sß║ún phß║⌐m ─æ├ú mua 1 day
+7 Chß╗⌐c n─âng cho quß║ún trß╗ï xem, x├│a review 1 day
+8 L├ám 1 slide tr├¼nh b├áy dß╗▒ ├ín m├á m├¼nh ─æ├ú l├ám. ─Éiß╗ün link v├áo file README.MD ─æß╗â v├áo
+git
+
+=== TRANG 7 ===
+Quy ─æß╗ïnh chung
+- Hß╗ìc vi├¬n tß╗▒ do lß╗▒a chß╗ìn sß║ún phß║⌐m b├ín tß║íi Store & t├¬n gß╗ìi, logo cho
+Store (kh├┤ng n├¬n d├╣ng t├¬n gß╗ìi Devcamp/ Bootcamp, kh├┤ng n├¬n c├╣ng mß╗Öt
+loß║íi sß║ún phß║⌐m giß╗æng nhau);
+- Thß╗¥i gian l├ám dß╗▒ ├ín Capstone: 1 tuß║ºn
+

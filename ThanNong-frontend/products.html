@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sản Phẩm — Thần Nông Shop</title>
+    <meta name="description" content="Khám phá toàn bộ sản phẩm mỹ phẩm thảo dược của Thần Nông.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg sticky-top" style="background:linear-gradient(135deg,#3b71ca,#285192)!important;padding:.7rem 0;">
+    <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="index.html" style="text-decoration:none;">
+            <div style="background:#ffffff;border-radius:50%;padding:4px;border:2px solid rgba(255,255,255,.5);margin-right:10px;flex-shrink:0;">
+                <img src="assets/images/logo_shop.png" alt="Thần Nông Logo" style="height:48px;width:48px;object-fit:cover;border-radius:50%;">
+            </div>
+            <div class="d-flex flex-column">
+                <span style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:#ffffff;line-height:1.2;text-shadow:0 2px 4px rgba(0,0,0,.2);">Thần Nông</span>
+                <span style="font-family:'Inter',sans-serif;font-size:.75rem;color:#e2e8f0;font-weight:500;letter-spacing:1px;text-transform:uppercase;">Thảo dược thiên nhiên</span>
+            </div>
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+            <i class="fas fa-bars text-white"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="nav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html" style="color:rgba(255,255,255,.85);">Trang chủ</a></li>
+                <li class="nav-item"><a class="nav-link" href="products.html" style="color:white;font-weight:600;">Sản phẩm</a></li>
+                <li class="nav-item"><a class="nav-link" href="my-orders.html" style="color:rgba(255,255,255,.85);">Đơn hàng của tôi</a></li>
+            </ul>
+            <div class="d-flex align-items-center gap-2">
+                <a href="cart.html" class="nav-link position-relative text-white me-2">
+                    <i class="fas fa-shopping-cart fa-lg"></i>
+                    <span id="cartBadge" class="d-none position-absolute top-0 start-100 translate-middle badge rounded-pill" style="background:#f4a021;font-size:.6rem;">0</span>
+                </a>
+                <a id="navLoginBtn" href="login.html" class="btn btn-sm" style="background:#f4a021;color:white;border:none;border-radius:6px;">
+                    <i class="fas fa-sign-in-alt me-1"></i>Đăng nhập
+                </a>
+                <button id="navLogoutBtn" class="btn btn-sm btn-outline-light" style="display:none;" onclick="logoutAndRedirect()">Đăng xuất</button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<div style="background:linear-gradient(135deg,#3b71ca,#285192);padding:2rem 0;color:white;">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-1">
+                <li class="breadcrumb-item"><a href="index.html" class="text-white-50">Trang chủ</a></li>
+                <li class="breadcrumb-item active text-white">Sản phẩm</li>
+            </ol>
+        </nav>
+        <h1 style="font-family:'Playfair Display',serif;font-size:1.8rem;margin-bottom:0;">Danh Mục Sản Phẩm</h1>
+    </div>
+</div>
+
+<!-- CONTENT -->
+<div class="container py-4">
+    <div class="row">
+        <!-- SIDEBAR FILTER — trên mobile ẩn, toggle bằng nút -->
+        <div class="col-12 d-lg-none mb-3">
+            <button class="btn btn-sm w-100" style="background:#3b71ca;color:white;" data-bs-toggle="collapse" data-bs-target="#filterPanel">
+                <i class="fas fa-filter me-1"></i> Bộ lọc & Tìm kiếm
+            </button>
+        </div>
+
+        <div class="col-lg-3 mb-4">
+            <div id="filterPanel" class="collapse d-lg-block filter-panel">
+                <h5><i class="fas fa-filter me-2" style="color:#3b71ca;"></i>Bộ Lọc</h5>
+                <div class="mb-3">
+                    <label class="form-label small fw-bold">Tìm kiếm</label>
+                    <div class="input-group">
+                        <input type="text" id="searchKeyword" class="form-control form-control-sm" placeholder="Tên sản phẩm..." onkeyup="onFilterChange()">
+                        <button class="btn btn-sm" style="background:#3b71ca;color:white;" onclick="searchProducts()"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label small fw-bold">Danh mục</label>
+                    <select id="filterCategory" class="form-select form-select-sm" onchange="searchProducts()">
+                        <option value="">Tất cả danh mục</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label small fw-bold">Giá từ (đ)</label>
+                    <input type="number" id="filterMinPrice" class="form-control form-control-sm" placeholder="0" onchange="searchProducts()">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label small fw-bold">Giá đến (đ)</label>
+                    <input type="number" id="filterMaxPrice" class="form-control form-control-sm" placeholder="1.000.000" onchange="searchProducts()">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label small fw-bold">Sắp xếp</label>
+                    <select id="filterSort" class="form-select form-select-sm" onchange="searchProducts()">
+                        <option value="id">Mới nhất</option>
+                        <option value="price_asc">Giá tăng dần</option>
+                        <option value="price_desc">Giá giảm dần</option>
+                        <option value="name">Tên A→Z</option>
+                    </select>
+                </div>
+                <button class="btn btn-sm btn-outline-secondary w-100" onclick="resetFilters()">
+                    <i class="fas fa-undo me-1"></i>Xóa bộ lọc
+                </button>
+            </div>
+        </div>
+
+        <!-- PRODUCT GRID -->
+        <div class="col-lg-9">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-muted small" id="resultInfo">Đang tải...</span>
+            </div>
+            <div class="row g-3" id="productGrid">
+                <div class="col-12 text-center py-5">
+                    <div class="spinner-border" style="color:#3b71ca;"></div>
+                    <p class="text-muted mt-2">Đang tải sản phẩm...</p>
+                </div>
+            </div>
+            <nav class="mt-4">
+                <ul class="pagination pagination-custom justify-content-center" id="pagination"></ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer style="background:linear-gradient(135deg,#285192,#162d50);color:rgba(255,255,255,.8);padding:2rem 0;margin-top:3rem;">
+    <div class="container text-center small">
+        © 2024 Shop Thần Nông. All rights reserved. |
+        <a href="index.html" style="color:#f4a021;">Trang chủ</a> |
+        <a href="my-orders.html" style="color:#f4a021;">Theo dõi đơn hàng</a>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/auth.js"></script>
+<script src="assets/js/cart.js"></script>
+<script src="assets/js/products.js"></script>
+</body>
+</html>

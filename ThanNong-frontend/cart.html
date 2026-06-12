@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ Hàng — Thần Nông Shop</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+</head>
+<body>
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg sticky-top" style="background:linear-gradient(135deg,#3b71ca,#285192)!important;padding:.7rem 0;">
+    <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="index.html" style="text-decoration:none;">
+            <div style="background:#ffffff;border-radius:50%;padding:4px;border:2px solid rgba(255,255,255,.5);margin-right:10px;flex-shrink:0;">
+                <img src="assets/images/logo_shop.png" alt="Thần Nông Logo" style="height:48px;width:48px;object-fit:cover;border-radius:50%;">
+            </div>
+            <div class="d-flex flex-column">
+                <span style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:#ffffff;line-height:1.2;text-shadow:0 2px 4px rgba(0,0,0,.2);">Thần Nông</span>
+                <span style="font-family:'Inter',sans-serif;font-size:.75rem;color:#e2e8f0;font-weight:500;letter-spacing:1px;text-transform:uppercase;">Thảo dược thiên nhiên</span>
+            </div>
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+            <i class="fas fa-bars text-white"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="nav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html" style="color:rgba(255,255,255,.85);">Trang chủ</a></li>
+                <li class="nav-item"><a class="nav-link" href="products.html" style="color:rgba(255,255,255,.85);">Sản phẩm</a></li>
+            </ul>
+            <div class="d-flex gap-2">
+                <a id="navLoginBtn" href="login.html" class="btn btn-sm" style="background:#f4a021;color:white;border:none;">
+                    <i class="fas fa-sign-in-alt me-1"></i>Đăng nhập
+                </a>
+                <button id="navLogoutBtn" class="btn btn-sm btn-outline-light" style="display:none;" onclick="logoutAndRedirect()">Đăng xuất</button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container py-4">
+    <h1 style="font-family:'Playfair Display',serif;font-size:1.8rem;color:#285192;margin-bottom:1.5rem;">
+        <i class="fas fa-shopping-cart me-2"></i>Giỏ Hàng Của Bạn
+    </h1>
+
+    <div class="row g-4">
+        <!-- Danh sách sản phẩm trong giỏ -->
+        <div class="col-lg-8">
+            <div id="cartContainer">
+                <div class="text-center py-5">
+                    <div class="spinner-border" style="color:#3b71ca;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tổng tiền -->
+        <div class="col-lg-4">
+            <div class="p-4 bg-white rounded-4 shadow-sm border" style="position:sticky;top:90px;">
+                <h5 class="fw-bold mb-3" style="color:#285192;">Tóm Tắt Đơn Hàng</h5>
+                <div class="d-flex justify-content-between mb-2">
+                    <span class="text-muted">Tạm tính:</span>
+                    <span id="subtotalDisplay" class="fw-bold">0 đ</span>
+                </div>
+                <div class="d-flex justify-content-between mb-3">
+                    <span class="text-muted">Phí giao hàng:</span>
+                    <span class="text-success fw-bold">Miễn phí</span>
+                </div>
+                <hr>
+                <div class="d-flex justify-content-between mb-4">
+                    <span class="fw-bold fs-5">Tổng cộng:</span>
+                    <span id="totalDisplay" class="fw-bold fs-5" style="color:#3b71ca;">0 đ</span>
+                </div>
+                <a href="checkout.html" id="checkoutBtn" class="btn w-100 py-2 fw-bold" style="background:#3b71ca;color:white;border-radius:10px;">
+                    <i class="fas fa-credit-card me-2"></i>Đặt hàng ngay
+                </a>
+                <a href="products.html" class="btn btn-outline-secondary w-100 mt-2 py-2">
+                    <i class="fas fa-arrow-left me-2"></i>Tiếp tục mua sắm
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer style="background:linear-gradient(135deg,#285192,#162d50);color:rgba(255,255,255,.8);padding:1.5rem 0;margin-top:3rem;">
+    <div class="container text-center small">© 2024 Shop Thần Nông</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/auth.js"></script>
+<script src="assets/js/cart.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        renderCartPage();
+        updateLoginNav();
+    });
+
+    function updateLoginNav() {
+        if (isLoggedIn()) {
+            document.getElementById('navLoginBtn').style.display = 'none';
+            document.getElementById('navLogoutBtn').style.display = 'inline-block';
+        }
+    }
+
+    function renderCartPage() {
+        const items   = getCart();
+        const container = document.getElementById('cartContainer');
+
+        if (items.length === 0) {
+            container.innerHTML = `
+                <div class="text-center py-5" style="color:#6c757d;">
+                    <i class="fas fa-shopping-cart fa-4x mb-3" style="color:#dee2e6;"></i>
+                    <h4>Giỏ hàng trống</h4>
+                    <p>Bạn chưa có sản phẩm nào trong giỏ hàng.</p>
+                    <a href="products.html" class="btn" style="background:#3b71ca;color:white;border-radius:8px;">
+                        <i class="fas fa-shopping-bag me-1"></i>Mua sắm ngay
+                    </a>
+                </div>`;
+            document.getElementById('checkoutBtn').classList.add('disabled');
+            return;
+        }
+
+        let total = 0;
+        container.innerHTML = items.map(item => {
+            const subtotal = item.buyPrice * item.quantity;
+            total += subtotal;
+            return `
+            <div class="card border-0 shadow-sm mb-3 rounded-4" id="cartItem-${item.productId}">
+                <div class="card-body d-flex align-items-center gap-3">
+                    <img src="${getProductImageUrl(item.imageUrl)}" alt="${item.productName}"
+                         style="width:70px;height:70px;object-fit:contain;border-radius:10px;background:#f0f7f3;flex-shrink:0;"
+                         onerror="this.src='assets/images/products/placeholder.jpg'">
+                    <div class="flex-grow-1">
+                        <div class="fw-bold small">${item.productName}</div>
+                        <div style="color:#3b71ca;font-weight:700;">${formatCurrency(item.buyPrice)}</div>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <button class="btn btn-sm btn-outline-secondary" style="width:30px;height:30px;padding:0;" onclick="changeQty(${item.productId}, -1)">−</button>
+                        <span class="fw-bold px-1">${item.quantity}</span>
+                        <button class="btn btn-sm btn-outline-secondary" style="width:30px;height:30px;padding:0;" onclick="changeQty(${item.productId}, 1)">+</button>
+                    </div>
+                    <div class="text-end" style="min-width:80px;">
+                        <div class="fw-bold small" style="color:#3b71ca;">${formatCurrency(subtotal)}</div>
+                        <button class="btn btn-sm btn-link text-danger p-0 mt-1" onclick="removeFromCart(${item.productId})">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>`;
+        }).join('');
+
+        document.getElementById('subtotalDisplay').textContent = formatCurrency(total);
+        document.getElementById('totalDisplay').textContent = formatCurrency(total);
+    }
+
+    function changeQty(productId, delta) {
+        const cart = getCart();
+        const item = cart.find(i => i.productId === productId);
+        if (item) {
+            item.quantity = Math.max(1, item.quantity + delta);
+            saveCart(cart);
+            renderCartPage();
+            updateCartBadge();
+        }
+    }
+
+    function removeFromCart(productId) {
+        const cart = getCart().filter(i => i.productId !== productId);
+        saveCart(cart);
+        renderCartPage();
+        updateCartBadge();
+    }
+</script>
+</body>
+</html>
