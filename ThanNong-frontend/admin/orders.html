@@ -45,8 +45,9 @@
 
     <div class="content-wrapper">
         <div class="content-header">
-            <div class="container-fluid">
+            <div class="container-fluid d-flex justify-content-between align-items-center">
                 <h1 class="m-0">Quản Lý Đơn Hàng</h1>
+                <button class="btn btn-primary" onclick="showOrderForm()"><i class="fas fa-plus"></i> Tạo đơn hàng mới</button>
             </div>
         </div>
 
@@ -79,11 +80,65 @@
     </div>
 </div>
 
+<!-- Modal Form Đơn Hàng (Tạo/Sửa) -->
+<div class="modal fade" id="orderFormModal" tabindex="-1">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="orderFormTitle">Tạo Đơn Hàng Mới</h5>
+                <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="formOrderId">
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <label>Khách hàng *</label>
+                        <select id="formCustomerId" class="form-control" required></select>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label>Trạng thái</label>
+                        <select id="formOrderStatus" class="form-control">
+                            <option value="PENDING">Chờ xác nhận</option>
+                            <option value="CONFIRMED">Đã xác nhận</option>
+                            <option value="SHIPPED">Đang giao hàng</option>
+                            <option value="DONE">Hoàn thành</option>
+                            <option value="CANCELLED">Hủy bỏ</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Ghi chú</label>
+                    <textarea id="formOrderComments" class="form-control" rows="2"></textarea>
+                </div>
+                <hr>
+                <h6>Danh sách sản phẩm <button class="btn btn-sm btn-success float-right" onclick="addOrderItemRow()"><i class="fas fa-plus"></i> Thêm sản phẩm</button></h6>
+                <div class="table-responsive mt-2">
+                    <table class="table table-bordered table-sm" id="orderItemsTable">
+                        <thead class="bg-light">
+                            <tr>
+                                <th style="width: 50%">Sản phẩm</th>
+                                <th style="width: 20%" class="text-center">Số lượng</th>
+                                <th style="width: 20%" class="text-right">Đơn giá</th>
+                                <th style="width: 10%" class="text-center">Xóa</th>
+                            </tr>
+                        </thead>
+                        <tbody id="orderItemsBody"></tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-primary" onclick="saveOrder()" id="btnSaveOrder">Lưu Đơn Hàng</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Modal Chi Tiết Đơn Hàng -->
 <div class="modal fade" id="orderModal" tabindex="-1">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <div class="modal-header bg-primary text-white">
+            <div class="modal-header bg-info text-white">
                 <h5 class="modal-title">Chi Tiết Đơn Hàng #<span id="detailOrderId"></span></h5>
                 <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
             </div>
@@ -136,14 +191,134 @@
                     <td class="fw-bold text-success">${formatCurrency(o.totalAmount)}</td>
                     <td class="text-center"><span class="badge bg-${statusColor[o.status]||'secondary'}">${statusLabel[o.status]||o.status}</span></td>
                     <td class="text-center">
-                        <button class="btn btn-sm btn-info" onclick="viewOrder(${o.id})"><i class="fas fa-eye"></i> Xem / Xử lý</button>
+                        <button class="btn btn-sm btn-info" onclick="viewOrder(${o.id})" title="Xem/Trạng thái"><i class="fas fa-eye"></i></button>
+                        <button class="btn btn-sm btn-primary" onclick="editOrder(${o.id})" title="Sửa chi tiết"><i class="fas fa-edit"></i></button>
                     </td>
                 </tr>`).join('');
             dtTable = $('#ordersTable').DataTable({
                 language: { url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/vi.json' },
                 order: [[0, 'desc']]
             });
+            loadFormData(); // Load data for dropdowns
         } catch (e) { Swal.fire('Lỗi', 'Không thể tải danh sách đơn hàng', 'error'); }
+    }
+
+    let allCustomers = [];
+    let allProducts = [];
+
+    async function loadFormData() {
+        try {
+            const [custRes, prodRes] = await Promise.all([
+                apiRequest('/customers?page=0&size=1000'),
+                apiRequest('/products?page=0&size=1000')
+            ]);
+            allCustomers = custRes.data || [];
+            allProducts = prodRes.data || [];
+            
+            const custSelect = document.getElementById('formCustomerId');
+            custSelect.innerHTML = '<option value="">-- Chọn khách hàng --</option>' + 
+                allCustomers.map(c => `<option value="${c.id}">${c.lastName} ${c.firstName} - ${c.phoneNumber}</option>`).join('');
+        } catch (e) { console.error('Lỗi tải dữ liệu form', e); }
+    }
+
+    function addOrderItemRow(productId = '', quantity = 1, price = 0) {
+        const tbody = document.getElementById('orderItemsBody');
+        const tr = document.createElement('tr');
+        
+        let prodOptions = '<option value="">-- Chọn sản phẩm --</option>';
+        allProducts.forEach(p => {
+            prodOptions += `<option value="${p.id}" data-price="${p.buyPrice}" ${p.id == productId ? 'selected' : ''}>${p.productName} (Tồn: ${p.quantityInStock})</option>`;
+        });
+
+        tr.innerHTML = `
+            <td><select class="form-control item-product" onchange="updateRowPrice(this)">${prodOptions}</select></td>
+            <td><input type="number" class="form-control text-center item-qty" value="${quantity}" min="1"></td>
+            <td><input type="number" class="form-control text-right item-price" value="${price}" readonly></td>
+            <td class="text-center"><button class="btn btn-sm btn-danger" onclick="this.closest('tr').remove()"><i class="fas fa-trash"></i></button></td>
+        `;
+        tbody.appendChild(tr);
+    }
+
+    function updateRowPrice(selectElement) {
+        const tr = selectElement.closest('tr');
+        const priceInput = tr.querySelector('.item-price');
+        const selectedOption = selectElement.options[selectElement.selectedIndex];
+        if (selectedOption.value) {
+            priceInput.value = selectedOption.getAttribute('data-price');
+        } else {
+            priceInput.value = 0;
+        }
+    }
+
+    function showOrderForm() {
+        document.getElementById('formOrderId').value = '';
+        document.getElementById('formCustomerId').value = '';
+        document.getElementById('formOrderStatus').value = 'PENDING';
+        document.getElementById('formOrderComments').value = '';
+        document.getElementById('orderItemsBody').innerHTML = '';
+        addOrderItemRow(); // Add one empty row
+        document.getElementById('orderFormTitle').textContent = 'Tạo Đơn Hàng Mới';
+        $('#orderFormModal').modal('show');
+    }
+
+    async function editOrder(id) {
+        try {
+            const o = await apiRequest(`/orders/${id}`);
+            document.getElementById('formOrderId').value = o.id;
+            document.getElementById('formCustomerId').value = o.customerId;
+            document.getElementById('formOrderStatus').value = o.status;
+            document.getElementById('formOrderComments').value = o.comments || '';
+            
+            document.getElementById('orderItemsBody').innerHTML = '';
+            if (o.orderDetails && o.orderDetails.length > 0) {
+                o.orderDetails.forEach(d => addOrderItemRow(d.productId, d.quantityOrder, d.priceEach));
+            } else {
+                addOrderItemRow();
+            }
+
+            document.getElementById('orderFormTitle').textContent = `Sửa Đơn Hàng #${id}`;
+            $('#orderFormModal').modal('show');
+        } catch (e) { Swal.fire('Lỗi', 'Không thể lấy thông tin đơn hàng', 'error'); }
+    }
+
+    async function saveOrder() {
+        const id = document.getElementById('formOrderId').value;
+        const customerId = document.getElementById('formCustomerId').value;
+        if (!customerId) return Swal.fire('Lỗi', 'Vui lòng chọn khách hàng', 'warning');
+
+        const rows = document.querySelectorAll('#orderItemsBody tr');
+        if (rows.length === 0) return Swal.fire('Lỗi', 'Đơn hàng phải có ít nhất 1 sản phẩm', 'warning');
+
+        const orderDetails = [];
+        for (let row of rows) {
+            const productId = row.querySelector('.item-product').value;
+            const quantityOrder = parseInt(row.querySelector('.item-qty').value);
+            if (!productId || quantityOrder < 1) return Swal.fire('Lỗi', 'Vui lòng chọn sản phẩm và số lượng hợp lệ', 'warning');
+            orderDetails.push({ productId: parseInt(productId), quantityOrder: quantityOrder });
+        }
+
+        const data = {
+            customerId: parseInt(customerId),
+            status: document.getElementById('formOrderStatus').value,
+            comments: document.getElementById('formOrderComments').value.trim(),
+            orderDetails: orderDetails
+        };
+
+        const btn = document.getElementById('btnSaveOrder');
+        btn.disabled = true; btn.textContent = 'Đang lưu...';
+
+        try {
+            if (id) await apiRequest(`/orders/${id}`, 'PUT', data);
+            else await apiRequest('/orders', 'POST', data);
+            
+            Swal.fire('Thành công', 'Đã lưu đơn hàng', 'success');
+            $('#orderFormModal').modal('hide');
+            loadOrders();
+        } catch (e) {
+            Swal.fire('Lỗi', e.message || 'Lưu đơn hàng thất bại', 'error');
+        } finally {
+            btn.disabled = false; btn.textContent = 'Lưu Đơn Hàng';
+        }
     }
 
     async function viewOrder(id) {
