@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quản Lý Đơn Hàng — Thần Nông Admin</title>
+    <title>Quáº£n LÃ½ ÄÆ¡n HÃ ng â€” Tháº§n NÃ´ng Admin</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap4.min.css">
@@ -18,8 +18,8 @@
             <li class="nav-item"><a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a></li>
         </ul>
         <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a href="../index.html" class="nav-link text-muted"><i class="fas fa-store me-1"></i>Xem cửa hàng</a></li>
-            <li class="nav-item"><a class="nav-link text-danger" href="#" onclick="logoutAndRedirect()"><i class="fas fa-sign-out-alt me-1"></i>Đăng xuất</a></li>
+            <li class="nav-item"><a href="../index.html" class="nav-link text-muted"><i class="fas fa-store me-1"></i>Xem cá»­a hÃ ng</a></li>
+            <li class="nav-item"><a class="nav-link text-danger" href="#" onclick="logoutAndRedirect()"><i class="fas fa-sign-out-alt me-1"></i>ÄÄƒng xuáº¥t</a></li>
         </ul>
     </nav>
 
@@ -27,17 +27,18 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <a href="dashboard.html" class="brand-link">
             <img src="../assets/images/logo_shop.png" alt="Logo" class="brand-image img-circle elevation-3" onerror="this.style.display='none'">
-            <span class="brand-text font-weight-light">Thần Nông Admin</span>
+            <span class="brand-text font-weight-light">Tháº§n NÃ´ng Admin</span>
         </a>
         <div class="sidebar">
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
                     <li class="nav-item"><a href="dashboard.html" class="nav-link"><i class="nav-icon fas fa-tachometer-alt"></i><p>Dashboard</p></a></li>
-                    <li class="nav-item"><a href="products.html" class="nav-link"><i class="nav-icon fas fa-box"></i><p>Sản phẩm</p></a></li>
-                    <li class="nav-item"><a href="customers.html" class="nav-link"><i class="nav-icon fas fa-users"></i><p>Khách hàng</p></a></li>
-                    <li class="nav-item"><a href="orders.html" class="nav-link active"><i class="nav-icon fas fa-shopping-bag"></i><p>Đơn hàng</p></a></li>
-                    <li class="nav-item"><a href="report-revenue.html" class="nav-link"><i class="nav-icon fas fa-chart-line"></i><p>Báo cáo doanh thu</p></a></li>
-                    <li class="nav-item"><a href="report-customer.html" class="nav-link"><i class="nav-icon fas fa-chart-bar"></i><p>Khách hàng VIP</p></a></li>
+                    <li class="nav-item"><a href="products.html" class="nav-link"><i class="nav-icon fas fa-box"></i><p>Sáº£n pháº©m</p></a></li>
+                    <li class="nav-item"><a href="customers.html" class="nav-link"><i class="nav-icon fas fa-users"></i><p>KhÃ¡ch hÃ ng</p></a></li>
+                    <li class="nav-item"><a href="orders.html" class="nav-link active"><i class="nav-icon fas fa-shopping-bag"></i><p>ÄÆ¡n hÃ ng</p></a></li>
+                    <li class="nav-item"><a href="reviews.html" class="nav-link"><i class="nav-icon fas fa-star"></i><p>Đánh giá</p></a></li>
+                    <li class="nav-item"><a href="report-revenue.html" class="nav-link"><i class="nav-icon fas fa-chart-line"></i><p>BÃ¡o cÃ¡o doanh thu</p></a></li>
+                    <li class="nav-item"><a href="report-customer.html" class="nav-link"><i class="nav-icon fas fa-chart-bar"></i><p>KhÃ¡ch hÃ ng VIP</p></a></li>
                 </ul>
             </nav>
         </div>
@@ -46,8 +47,8 @@
     <div class="content-wrapper">
         <div class="content-header">
             <div class="container-fluid d-flex justify-content-between align-items-center">
-                <h1 class="m-0">Quản Lý Đơn Hàng</h1>
-                <button class="btn btn-primary" onclick="showOrderForm()"><i class="fas fa-plus"></i> Tạo đơn hàng mới</button>
+                <h1 class="m-0">Quáº£n LÃ½ ÄÆ¡n HÃ ng</h1>
+                <button class="btn btn-primary" onclick="showOrderForm()"><i class="fas fa-plus"></i> Táº¡o Ä‘Æ¡n hÃ ng má»›i</button>
             </div>
         </div>
 
@@ -60,12 +61,12 @@
                                 <thead class="table-light">
                                     <tr>
                                         <th>ID</th>
-                                        <th>Khách hàng</th>
-                                        <th>SĐT</th>
-                                        <th>Ngày đặt</th>
-                                        <th>Tổng tiền</th>
-                                        <th>Trạng thái</th>
-                                        <th>Thao tác</th>
+                                        <th>KhÃ¡ch hÃ ng</th>
+                                        <th>SÄT</th>
+                                        <th>NgÃ y Ä‘áº·t</th>
+                                        <th>Tá»•ng tiá»n</th>
+                                        <th>Tráº¡ng thÃ¡i</th>
+                                        <th>Thao tÃ¡c</th>
                                     </tr>
                                 </thead>
                                 <tbody id="ordersBody">
@@ -80,46 +81,46 @@
     </div>
 </div>
 
-<!-- Modal Form Đơn Hàng (Tạo/Sửa) -->
+<!-- Modal Form ÄÆ¡n HÃ ng (Táº¡o/Sá»­a) -->
 <div class="modal fade" id="orderFormModal" tabindex="-1">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header bg-primary text-white">
-                <h5 class="modal-title" id="orderFormTitle">Tạo Đơn Hàng Mới</h5>
+                <h5 class="modal-title" id="orderFormTitle">Táº¡o ÄÆ¡n HÃ ng Má»›i</h5>
                 <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
                 <input type="hidden" id="formOrderId">
                 <div class="row">
                     <div class="col-md-6 form-group">
-                        <label>Khách hàng *</label>
+                        <label>KhÃ¡ch hÃ ng *</label>
                         <select id="formCustomerId" class="form-control" required></select>
                     </div>
                     <div class="col-md-6 form-group">
-                        <label>Trạng thái</label>
+                        <label>Tráº¡ng thÃ¡i</label>
                         <select id="formOrderStatus" class="form-control">
-                            <option value="PENDING">Chờ xác nhận</option>
-                            <option value="CONFIRMED">Đã xác nhận</option>
-                            <option value="SHIPPED">Đang giao hàng</option>
-                            <option value="DONE">Hoàn thành</option>
-                            <option value="CANCELLED">Hủy bỏ</option>
+                            <option value="PENDING">Chá» xÃ¡c nháº­n</option>
+                            <option value="CONFIRMED">ÄÃ£ xÃ¡c nháº­n</option>
+                            <option value="SHIPPED">Äang giao hÃ ng</option>
+                            <option value="DONE">HoÃ n thÃ nh</option>
+                            <option value="CANCELLED">Há»§y bá»</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label>Ghi chú</label>
+                    <label>Ghi chÃº</label>
                     <textarea id="formOrderComments" class="form-control" rows="2"></textarea>
                 </div>
                 <hr>
-                <h6>Danh sách sản phẩm <button class="btn btn-sm btn-success float-right" onclick="addOrderItemRow()"><i class="fas fa-plus"></i> Thêm sản phẩm</button></h6>
+                <h6>Danh sÃ¡ch sáº£n pháº©m <button class="btn btn-sm btn-success float-right" onclick="addOrderItemRow()"><i class="fas fa-plus"></i> ThÃªm sáº£n pháº©m</button></h6>
                 <div class="table-responsive mt-2">
                     <table class="table table-bordered table-sm" id="orderItemsTable">
                         <thead class="bg-light">
                             <tr>
-                                <th style="width: 50%">Sản phẩm</th>
-                                <th style="width: 20%" class="text-center">Số lượng</th>
-                                <th style="width: 20%" class="text-right">Đơn giá</th>
-                                <th style="width: 10%" class="text-center">Xóa</th>
+                                <th style="width: 50%">Sáº£n pháº©m</th>
+                                <th style="width: 20%" class="text-center">Sá»‘ lÆ°á»£ng</th>
+                                <th style="width: 20%" class="text-right">ÄÆ¡n giÃ¡</th>
+                                <th style="width: 10%" class="text-center">XÃ³a</th>
                             </tr>
                         </thead>
                         <tbody id="orderItemsBody"></tbody>
@@ -127,32 +128,32 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                <button type="button" class="btn btn-primary" onclick="saveOrder()" id="btnSaveOrder">Lưu Đơn Hàng</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">ÄÃ³ng</button>
+                <button type="button" class="btn btn-primary" onclick="saveOrder()" id="btnSaveOrder">LÆ°u ÄÆ¡n HÃ ng</button>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Modal Chi Tiết Đơn Hàng -->
+<!-- Modal Chi Tiáº¿t ÄÆ¡n HÃ ng -->
 <div class="modal fade" id="orderModal" tabindex="-1">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-info text-white">
-                <h5 class="modal-title">Chi Tiết Đơn Hàng #<span id="detailOrderId"></span></h5>
+                <h5 class="modal-title">Chi Tiáº¿t ÄÆ¡n HÃ ng #<span id="detailOrderId"></span></h5>
                 <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body" id="orderDetailBody"></div>
             <div class="modal-footer">
                 <select id="statusSelect" class="form-control d-inline-block w-auto">
-                    <option value="PENDING">Chờ xác nhận</option>
-                    <option value="CONFIRMED">Đã xác nhận</option>
-                    <option value="SHIPPED">Đang giao hàng</option>
-                    <option value="DONE">Hoàn thành</option>
-                    <option value="CANCELLED">Hủy bỏ</option>
+                    <option value="PENDING">Chá» xÃ¡c nháº­n</option>
+                    <option value="CONFIRMED">ÄÃ£ xÃ¡c nháº­n</option>
+                    <option value="SHIPPED">Äang giao hÃ ng</option>
+                    <option value="DONE">HoÃ n thÃ nh</option>
+                    <option value="CANCELLED">Há»§y bá»</option>
                 </select>
-                <button type="button" class="btn btn-success" onclick="updateOrderStatus()">Cập nhật trạng thái</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-success" onclick="updateOrderStatus()">Cáº­p nháº­t tráº¡ng thÃ¡i</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">ÄÃ³ng</button>
             </div>
         </div>
     </div>
@@ -169,7 +170,7 @@
 <script>
     let dtTable;
     let currentOrderId;
-    const statusLabel = { PENDING:'Chờ XN', CONFIRMED:'Đã XN', SHIPPED:'Đang giao', DONE:'Hoàn thành', CANCELLED:'Đã hủy' };
+    const statusLabel = { PENDING:'Chá» XN', CONFIRMED:'ÄÃ£ XN', SHIPPED:'Äang giao', DONE:'HoÃ n thÃ nh', CANCELLED:'ÄÃ£ há»§y' };
     const statusColor = { PENDING:'warning', CONFIRMED:'info', SHIPPED:'primary', DONE:'success', CANCELLED:'danger' };
 
     document.addEventListener('DOMContentLoaded', () => {
@@ -191,9 +192,9 @@
                     <td class="fw-bold text-success">${formatCurrency(o.totalAmount)}</td>
                     <td class="text-center"><span class="badge bg-${statusColor[o.status]||'secondary'}">${statusLabel[o.status]||o.status}</span></td>
                     <td class="text-center">
-                        <button class="btn btn-sm btn-info" onclick="viewOrder(${o.id})" title="Xem/Trạng thái"><i class="fas fa-eye"></i></button>
-                        <button class="btn btn-sm btn-primary" onclick="editOrder(${o.id})" title="Sửa chi tiết"><i class="fas fa-edit"></i></button>
-                        <button class="btn btn-sm btn-danger" onclick="deleteOrder(${o.id})" title="Xóa đơn hàng"><i class="fas fa-trash"></i></button>
+                        <button class="btn btn-sm btn-info" onclick="viewOrder(${o.id})" title="Xem/Tráº¡ng thÃ¡i"><i class="fas fa-eye"></i></button>
+                        <button class="btn btn-sm btn-primary" onclick="editOrder(${o.id})" title="Sá»­a chi tiáº¿t"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-sm btn-danger" onclick="deleteOrder(${o.id})" title="XÃ³a Ä‘Æ¡n hÃ ng"><i class="fas fa-trash"></i></button>
                     </td>
                 </tr>`).join('');
             dtTable = $('#ordersTable').DataTable({
@@ -201,7 +202,7 @@
                 order: [[0, 'desc']]
             });
             loadFormData(); // Load data for dropdowns
-        } catch (e) { Swal.fire('Lỗi', 'Không thể tải danh sách đơn hàng', 'error'); }
+        } catch (e) { Swal.fire('Lá»—i', 'KhÃ´ng thá»ƒ táº£i danh sÃ¡ch Ä‘Æ¡n hÃ ng', 'error'); }
     }
 
     let allCustomers = [];
@@ -217,18 +218,18 @@
             allProducts = prodRes.data || [];
             
             const custSelect = document.getElementById('formCustomerId');
-            custSelect.innerHTML = '<option value="">-- Chọn khách hàng --</option>' + 
+            custSelect.innerHTML = '<option value="">-- Chá»n khÃ¡ch hÃ ng --</option>' + 
                 allCustomers.map(c => `<option value="${c.id}">${c.lastName} ${c.firstName} - ${c.phoneNumber}</option>`).join('');
-        } catch (e) { console.error('Lỗi tải dữ liệu form', e); }
+        } catch (e) { console.error('Lá»—i táº£i dá»¯ liá»‡u form', e); }
     }
 
     function addOrderItemRow(productId = '', quantity = 1, price = 0) {
         const tbody = document.getElementById('orderItemsBody');
         const tr = document.createElement('tr');
         
-        let prodOptions = '<option value="">-- Chọn sản phẩm --</option>';
+        let prodOptions = '<option value="">-- Chá»n sáº£n pháº©m --</option>';
         allProducts.forEach(p => {
-            prodOptions += `<option value="${p.id}" data-price="${p.buyPrice}" ${p.id == productId ? 'selected' : ''}>${p.productName} (Tồn: ${p.quantityInStock})</option>`;
+            prodOptions += `<option value="${p.id}" data-price="${p.buyPrice}" ${p.id == productId ? 'selected' : ''}>${p.productName} (Tá»“n: ${p.quantityInStock})</option>`;
         });
 
         tr.innerHTML = `
@@ -258,7 +259,7 @@
         document.getElementById('formOrderComments').value = '';
         document.getElementById('orderItemsBody').innerHTML = '';
         addOrderItemRow(); // Add one empty row
-        document.getElementById('orderFormTitle').textContent = 'Tạo Đơn Hàng Mới';
+        document.getElementById('orderFormTitle').textContent = 'Táº¡o ÄÆ¡n HÃ ng Má»›i';
         $('#orderFormModal').modal('show');
     }
 
@@ -277,24 +278,24 @@
                 addOrderItemRow();
             }
 
-            document.getElementById('orderFormTitle').textContent = `Sửa Đơn Hàng #${id}`;
+            document.getElementById('orderFormTitle').textContent = `Sá»­a ÄÆ¡n HÃ ng #${id}`;
             $('#orderFormModal').modal('show');
-        } catch (e) { Swal.fire('Lỗi', 'Không thể lấy thông tin đơn hàng', 'error'); }
+        } catch (e) { Swal.fire('Lá»—i', 'KhÃ´ng thá»ƒ láº¥y thÃ´ng tin Ä‘Æ¡n hÃ ng', 'error'); }
     }
 
     async function saveOrder() {
         const id = document.getElementById('formOrderId').value;
         const customerId = document.getElementById('formCustomerId').value;
-        if (!customerId) return Swal.fire('Lỗi', 'Vui lòng chọn khách hàng', 'warning');
+        if (!customerId) return Swal.fire('Lá»—i', 'Vui lÃ²ng chá»n khÃ¡ch hÃ ng', 'warning');
 
         const rows = document.querySelectorAll('#orderItemsBody tr');
-        if (rows.length === 0) return Swal.fire('Lỗi', 'Đơn hàng phải có ít nhất 1 sản phẩm', 'warning');
+        if (rows.length === 0) return Swal.fire('Lá»—i', 'ÄÆ¡n hÃ ng pháº£i cÃ³ Ã­t nháº¥t 1 sáº£n pháº©m', 'warning');
 
         const orderDetails = [];
         for (let row of rows) {
             const productId = row.querySelector('.item-product').value;
             const quantityOrder = parseInt(row.querySelector('.item-qty').value);
-            if (!productId || quantityOrder < 1) return Swal.fire('Lỗi', 'Vui lòng chọn sản phẩm và số lượng hợp lệ', 'warning');
+            if (!productId || quantityOrder < 1) return Swal.fire('Lá»—i', 'Vui lÃ²ng chá»n sáº£n pháº©m vÃ  sá»‘ lÆ°á»£ng há»£p lá»‡', 'warning');
             orderDetails.push({ productId: parseInt(productId), quantityOrder: quantityOrder });
         }
 
@@ -306,19 +307,19 @@
         };
 
         const btn = document.getElementById('btnSaveOrder');
-        btn.disabled = true; btn.textContent = 'Đang lưu...';
+        btn.disabled = true; btn.textContent = 'Äang lÆ°u...';
 
         try {
             if (id) await apiRequest(`/orders/${id}`, 'PUT', data);
             else await apiRequest('/orders', 'POST', data);
             
-            Swal.fire('Thành công', 'Đã lưu đơn hàng', 'success');
+            Swal.fire('ThÃ nh cÃ´ng', 'ÄÃ£ lÆ°u Ä‘Æ¡n hÃ ng', 'success');
             $('#orderFormModal').modal('hide');
             loadOrders();
         } catch (e) {
-            Swal.fire('Lỗi', e.message || 'Lưu đơn hàng thất bại', 'error');
+            Swal.fire('Lá»—i', e.message || 'LÆ°u Ä‘Æ¡n hÃ ng tháº¥t báº¡i', 'error');
         } finally {
-            btn.disabled = false; btn.textContent = 'Lưu Đơn Hàng';
+            btn.disabled = false; btn.textContent = 'LÆ°u ÄÆ¡n HÃ ng';
         }
     }
 
@@ -332,21 +333,21 @@
             let html = `
                 <div class="row mb-3">
                     <div class="col-sm-6">
-                        <h6 class="fw-bold">Thông tin khách hàng:</h6>
-                        <div>Họ tên: ${o.customerFirstName||''} ${o.customerLastName||''}</div>
-                        <div>SĐT: ${o.customerPhone||''}</div>
-                        <div>Địa chỉ: ${o.customerAddress||''}, ${o.customerCity||''}, ${o.customerState||''}</div>
-                        <div>Ghi chú: <em>${o.comments||'Không có'}</em></div>
+                        <h6 class="fw-bold">ThÃ´ng tin khÃ¡ch hÃ ng:</h6>
+                        <div>Há» tÃªn: ${o.customerFirstName||''} ${o.customerLastName||''}</div>
+                        <div>SÄT: ${o.customerPhone||''}</div>
+                        <div>Äá»‹a chá»‰: ${o.customerAddress||''}, ${o.customerCity||''}, ${o.customerState||''}</div>
+                        <div>Ghi chÃº: <em>${o.comments||'KhÃ´ng cÃ³'}</em></div>
                     </div>
                     <div class="col-sm-6 text-sm-right">
-                        <h6 class="fw-bold">Thông tin đơn:</h6>
-                        <div>Ngày đặt: ${formatDate(o.orderDate)}</div>
-                        <div>Tổng tiền: <span class="fw-bold text-success fs-5">${formatCurrency(o.totalAmount)}</span></div>
+                        <h6 class="fw-bold">ThÃ´ng tin Ä‘Æ¡n:</h6>
+                        <div>NgÃ y Ä‘áº·t: ${formatDate(o.orderDate)}</div>
+                        <div>Tá»•ng tiá»n: <span class="fw-bold text-success fs-5">${formatCurrency(o.totalAmount)}</span></div>
                     </div>
                 </div>
-                <h6 class="fw-bold">Sản phẩm:</h6>
+                <h6 class="fw-bold">Sáº£n pháº©m:</h6>
                 <table class="table table-sm table-bordered">
-                    <thead class="bg-light"><tr><th>Sản phẩm</th><th class="text-center">Số lượng</th><th class="text-right">Đơn giá</th><th class="text-right">Thành tiền</th></tr></thead>
+                    <thead class="bg-light"><tr><th>Sáº£n pháº©m</th><th class="text-center">Sá»‘ lÆ°á»£ng</th><th class="text-right">ÄÆ¡n giÃ¡</th><th class="text-right">ThÃ nh tiá»n</th></tr></thead>
                     <tbody>
                         ${o.orderDetails ? o.orderDetails.map(d => `
                             <tr>
@@ -354,13 +355,13 @@
                                 <td class="text-center">${d.quantityOrder}</td>
                                 <td class="text-right">${formatCurrency(d.priceEach)}</td>
                                 <td class="text-right fw-bold">${formatCurrency(d.subTotal || d.priceEach * d.quantityOrder)}</td>
-                            </tr>`).join('') : '<tr><td colspan="4" class="text-center">Lỗi dữ liệu chi tiết</td></tr>'}
+                            </tr>`).join('') : '<tr><td colspan="4" class="text-center">Lá»—i dá»¯ liá»‡u chi tiáº¿t</td></tr>'}
                     </tbody>
                 </table>
             `;
             document.getElementById('orderDetailBody').innerHTML = html;
             $('#orderModal').modal('show');
-        } catch (e) { Swal.fire('Lỗi', 'Không thể tải chi tiết đơn hàng', 'error'); }
+        } catch (e) { Swal.fire('Lá»—i', 'KhÃ´ng thá»ƒ táº£i chi tiáº¿t Ä‘Æ¡n hÃ ng', 'error'); }
     }
 
     async function updateOrderStatus() {
@@ -368,19 +369,19 @@
         try {
             await apiRequest(`/orders/${currentOrderId}/status`, 'PUT', { status: newStatus });
             $('#orderModal').modal('hide');
-            Swal.fire('Thành công', 'Đã cập nhật trạng thái đơn hàng', 'success');
+            Swal.fire('ThÃ nh cÃ´ng', 'ÄÃ£ cáº­p nháº­t tráº¡ng thÃ¡i Ä‘Æ¡n hÃ ng', 'success');
             loadOrders();
-        } catch (e) { Swal.fire('Lỗi', e.message || 'Cập nhật thất bại', 'error'); }
+        } catch (e) { Swal.fire('Lá»—i', e.message || 'Cáº­p nháº­t tháº¥t báº¡i', 'error'); }
     }
 
     async function deleteOrder(id) {
-        if (!confirm('Bạn có chắc muốn xóa hoàn toàn đơn hàng này không? (Không thể hoàn tác)')) return;
+        if (!confirm('Báº¡n cÃ³ cháº¯c muá»‘n xÃ³a hoÃ n toÃ n Ä‘Æ¡n hÃ ng nÃ y khÃ´ng? (KhÃ´ng thá»ƒ hoÃ n tÃ¡c)')) return;
         try {
             await apiRequest(`/orders/${id}`, 'DELETE');
-            Swal.fire('Thành công', 'Đã xóa đơn hàng', 'success');
+            Swal.fire('ThÃ nh cÃ´ng', 'ÄÃ£ xÃ³a Ä‘Æ¡n hÃ ng', 'success');
             loadOrders();
         } catch (e) {
-            Swal.fire('Lỗi', e.message || 'Không thể xóa đơn hàng', 'error');
+            Swal.fire('Lá»—i', e.message || 'KhÃ´ng thá»ƒ xÃ³a Ä‘Æ¡n hÃ ng', 'error');
         }
     }
 </script>

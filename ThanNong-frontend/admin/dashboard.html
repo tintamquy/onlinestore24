@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard — Thần Nông Admin</title>
+    <title>Dashboard â€” Tháº§n NÃ´ng Admin</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/admin.css">
@@ -23,8 +23,8 @@
             <li class="nav-item"><a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a></li>
         </ul>
         <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a href="../index.html" class="nav-link text-muted"><i class="fas fa-store me-1"></i>Xem cửa hàng</a></li>
-            <li class="nav-item"><a class="nav-link text-danger" href="#" onclick="logoutAndRedirect()"><i class="fas fa-sign-out-alt me-1"></i>Đăng xuất</a></li>
+            <li class="nav-item"><a href="../index.html" class="nav-link text-muted"><i class="fas fa-store me-1"></i>Xem cá»­a hÃ ng</a></li>
+            <li class="nav-item"><a class="nav-link text-danger" href="#" onclick="logoutAndRedirect()"><i class="fas fa-sign-out-alt me-1"></i>ÄÄƒng xuáº¥t</a></li>
         </ul>
     </nav>
 
@@ -32,17 +32,18 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <a href="dashboard.html" class="brand-link">
             <img src="../assets/images/logo_shop.png" alt="Logo" class="brand-image img-circle elevation-3" onerror="this.style.display='none'">
-            <span class="brand-text font-weight-light">Thần Nông Admin</span>
+            <span class="brand-text font-weight-light">Tháº§n NÃ´ng Admin</span>
         </a>
         <div class="sidebar">
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
                     <li class="nav-item"><a href="dashboard.html" class="nav-link active"><i class="nav-icon fas fa-tachometer-alt"></i><p>Dashboard</p></a></li>
-                    <li class="nav-item"><a href="products.html" class="nav-link"><i class="nav-icon fas fa-box"></i><p>Sản phẩm</p></a></li>
-                    <li class="nav-item"><a href="customers.html" class="nav-link"><i class="nav-icon fas fa-users"></i><p>Khách hàng</p></a></li>
-                    <li class="nav-item"><a href="orders.html" class="nav-link"><i class="nav-icon fas fa-shopping-bag"></i><p>Đơn hàng</p></a></li>
-                    <li class="nav-item"><a href="report-revenue.html" class="nav-link"><i class="nav-icon fas fa-chart-line"></i><p>Báo cáo doanh thu</p></a></li>
-                    <li class="nav-item"><a href="report-customer.html" class="nav-link"><i class="nav-icon fas fa-chart-bar"></i><p>Khách hàng VIP</p></a></li>
+                    <li class="nav-item"><a href="products.html" class="nav-link"><i class="nav-icon fas fa-box"></i><p>Sáº£n pháº©m</p></a></li>
+                    <li class="nav-item"><a href="customers.html" class="nav-link"><i class="nav-icon fas fa-users"></i><p>KhÃ¡ch hÃ ng</p></a></li>
+                    <li class="nav-item"><a href="orders.html" class="nav-link"><i class="nav-icon fas fa-shopping-bag"></i><p>ÄÆ¡n hÃ ng</p></a></li>
+                    <li class="nav-item"><a href="reviews.html" class="nav-link"><i class="nav-icon fas fa-star"></i><p>Đánh giá</p></a></li>
+                    <li class="nav-item"><a href="report-revenue.html" class="nav-link"><i class="nav-icon fas fa-chart-line"></i><p>BÃ¡o cÃ¡o doanh thu</p></a></li>
+                    <li class="nav-item"><a href="report-customer.html" class="nav-link"><i class="nav-icon fas fa-chart-bar"></i><p>KhÃ¡ch hÃ ng VIP</p></a></li>
                 </ul>
             </nav>
         </div>
@@ -55,7 +56,7 @@
                 <div class="d-flex justify-content-between align-items-center">
                     <div>
                         <h1 class="m-0">Dashboard</h1>
-                        <small class="text-muted">Tổng quan hoạt động cửa hàng</small>
+                        <small class="text-muted">Tá»•ng quan hoáº¡t Ä‘á»™ng cá»­a hÃ ng</small>
                     </div>
                     <div class="text-muted small" id="currentTime"></div>
                 </div>
@@ -70,7 +71,7 @@
                         <div class="small-box stat-card" style="background:linear-gradient(135deg,#3b71ca,#5488de);color:white;">
                             <div class="inner">
                                 <h3 id="statRevenue">---</h3>
-                                <p>Doanh thu hôm nay</p>
+                                <p>Doanh thu hÃ´m nay</p>
                             </div>
                             <div class="icon"><i class="fas fa-chart-line stat-icon"></i></div>
                         </div>
@@ -79,7 +80,7 @@
                         <div class="small-box stat-card" style="background:linear-gradient(135deg,#f4a021,#e8851a);color:white;">
                             <div class="inner">
                                 <h3 id="statOrders">---</h3>
-                                <p>Đơn hàng hôm nay</p>
+                                <p>ÄÆ¡n hÃ ng hÃ´m nay</p>
                             </div>
                             <div class="icon"><i class="fas fa-shopping-bag stat-icon"></i></div>
                         </div>
@@ -88,7 +89,7 @@
                         <div class="small-box stat-card" style="background:linear-gradient(135deg,#3498db,#2980b9);color:white;">
                             <div class="inner">
                                 <h3 id="statProducts">---</h3>
-                                <p>Tổng sản phẩm</p>
+                                <p>Tá»•ng sáº£n pháº©m</p>
                             </div>
                             <div class="icon"><i class="fas fa-boxes stat-icon"></i></div>
                         </div>
@@ -97,19 +98,19 @@
                         <div class="small-box stat-card" style="background:linear-gradient(135deg,#9b59b6,#8e44ad);color:white;">
                             <div class="inner">
                                 <h3 id="statCustomers">---</h3>
-                                <p>Khách hàng</p>
+                                <p>KhÃ¡ch hÃ ng</p>
                             </div>
                             <div class="icon"><i class="fas fa-users stat-icon"></i></div>
                         </div>
                     </div>
                 </div>
 
-                <!-- BIỂU ĐỒ + ĐƠN HÀNG MỚI -->
+                <!-- BIá»‚U Äá»’ + ÄÆ N HÃ€NG Má»šI -->
                 <div class="row g-3">
                     <div class="col-lg-7">
                         <div class="card border-0 shadow-sm rounded-4">
                             <div class="card-header bg-white border-0 pb-0">
-                                <h5 class="fw-bold" style="color:#285192;"><i class="fas fa-chart-area me-2"></i>Doanh Thu 7 Ngày Qua</h5>
+                                <h5 class="fw-bold" style="color:#285192;"><i class="fas fa-chart-area me-2"></i>Doanh Thu 7 NgÃ y Qua</h5>
                             </div>
                             <div class="card-body">
                                 <canvas id="revenueChart" height="120"></canvas>
@@ -119,13 +120,13 @@
                     <div class="col-lg-5">
                         <div class="card border-0 shadow-sm rounded-4 h-100">
                             <div class="card-header bg-white border-0 pb-0">
-                                <h5 class="fw-bold" style="color:#285192;"><i class="fas fa-list me-2"></i>Đơn Hàng Mới Nhất</h5>
+                                <h5 class="fw-bold" style="color:#285192;"><i class="fas fa-list me-2"></i>ÄÆ¡n HÃ ng Má»›i Nháº¥t</h5>
                             </div>
                             <div class="card-body p-0">
                                 <div class="table-responsive">
                                     <table class="table table-sm recent-orders-table mb-0">
                                         <thead>
-                                            <tr><th class="ps-3">Mã ĐH</th><th>Khách hàng</th><th>Tổng tiền</th><th>Trạng thái</th></tr>
+                                            <tr><th class="ps-3">MÃ£ ÄH</th><th>KhÃ¡ch hÃ ng</th><th>Tá»•ng tiá»n</th><th>Tráº¡ng thÃ¡i</th></tr>
                                         </thead>
                                         <tbody id="recentOrdersBody">
                                             <tr><td colspan="4" class="text-center py-3"><div class="spinner-border spinner-border-sm text-success"></div></td></tr>
@@ -134,7 +135,7 @@
                                 </div>
                             </div>
                             <div class="card-footer bg-white border-0 text-center">
-                                <a href="orders.html" style="color:#3b71ca;font-size:.85rem;">Xem tất cả đơn hàng →</a>
+                                <a href="orders.html" style="color:#3b71ca;font-size:.85rem;">Xem táº¥t cáº£ Ä‘Æ¡n hÃ ng â†’</a>
                             </div>
                         </div>
                     </div>
@@ -142,7 +143,7 @@
             </div>
         </section>
     </div>
-    <footer class="main-footer text-center small text-muted py-2">© 2024 Shop Thần Nông Admin Panel</footer>
+    <footer class="main-footer text-center small text-muted py-2">Â© 2024 Shop Tháº§n NÃ´ng Admin Panel</footer>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
@@ -155,7 +156,7 @@
     document.addEventListener('DOMContentLoaded', () => {
         if (!isLoggedIn() || !isAdmin()) { window.location.href = '../login.html'; return; }
         loadDashboard();
-        // Hiển thị giờ hiện tại
+        // Hiá»ƒn thá»‹ giá» hiá»‡n táº¡i
         setInterval(() => {
             document.getElementById('currentTime').textContent = new Date().toLocaleString('vi-VN');
         }, 1000);
@@ -163,14 +164,14 @@
 
     async function loadDashboard() {
         try {
-            // Load thống kê tổng quan
+            // Load thá»‘ng kÃª tá»•ng quan
             const [orders, products, customers] = await Promise.allSettled([
                 apiRequest('/orders'),
                 apiRequest('/products?page=0&size=1'),
                 apiRequest('/customers?page=0&size=1')
             ]);
 
-            // Tính doanh thu hôm nay
+            // TÃ­nh doanh thu hÃ´m nay
             const todayStr = new Date().toISOString().split('T')[0];
             let todayRevenue = 0;
             let todayOrders = 0;
@@ -192,22 +193,22 @@
             document.getElementById('statProducts').textContent = products.status === 'fulfilled' ? (products.value.totalItems || '---') : '---';
             document.getElementById('statCustomers').textContent = customers.status === 'fulfilled' ? (customers.value.totalItems || '---') : '---';
 
-            // Render đơn hàng mới nhất
+            // Render Ä‘Æ¡n hÃ ng má»›i nháº¥t
             renderRecentOrders(allOrders.sort((a,b)=>b.id-a.id).slice(0,8));
 
-            // Vẽ biểu đồ 7 ngày
+            // Váº½ biá»ƒu Ä‘á»“ 7 ngÃ y
             drawRevenueChart(allOrders);
 
         } catch (err) {
-            console.error('Lỗi tải Dashboard:', err);
+            console.error('Lá»—i táº£i Dashboard:', err);
         }
     }
 
     function renderRecentOrders(orders) {
-        const statusLabel = { PENDING:'Chờ XN', CONFIRMED:'Đã XN', SHIPPED:'Đang giao', DONE:'Hoàn thành', CANCELLED:'Đã hủy' };
+        const statusLabel = { PENDING:'Chá» XN', CONFIRMED:'ÄÃ£ XN', SHIPPED:'Äang giao', DONE:'HoÃ n thÃ nh', CANCELLED:'ÄÃ£ há»§y' };
         const statusColor = { PENDING:'warning', CONFIRMED:'info', SHIPPED:'primary', DONE:'success', CANCELLED:'danger' };
         document.getElementById('recentOrdersBody').innerHTML = !orders.length
-            ? `<tr><td colspan="4" class="text-center text-muted py-3">Chưa có đơn hàng</td></tr>`
+            ? `<tr><td colspan="4" class="text-center text-muted py-3">ChÆ°a cÃ³ Ä‘Æ¡n hÃ ng</td></tr>`
             : orders.map(o => `
                 <tr>
                     <td class="ps-3 fw-bold text-muted small">#${o.id}</td>
@@ -236,7 +237,7 @@
             data: {
                 labels: days.map(d => d.slice(5)),
                 datasets: [{
-                    label: 'Doanh thu (đ)',
+                    label: 'Doanh thu (Ä‘)',
                     data: days.map(d => revenueByDay[d]),
                     borderColor: '#3b71ca',
                     backgroundColor: 'rgba(45,122,79,.1)',

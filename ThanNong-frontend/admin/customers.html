@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quản Lý Khách Hàng — Thần Nông Admin</title>
+    <title>Quáº£n LÃ½ KhÃ¡ch HÃ ng â€” Tháº§n NÃ´ng Admin</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap4.min.css">
@@ -18,8 +18,8 @@
             <li class="nav-item"><a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a></li>
         </ul>
         <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a href="../index.html" class="nav-link text-muted"><i class="fas fa-store me-1"></i>Xem cửa hàng</a></li>
-            <li class="nav-item"><a class="nav-link text-danger" href="#" onclick="logoutAndRedirect()"><i class="fas fa-sign-out-alt me-1"></i>Đăng xuất</a></li>
+            <li class="nav-item"><a href="../index.html" class="nav-link text-muted"><i class="fas fa-store me-1"></i>Xem cá»­a hÃ ng</a></li>
+            <li class="nav-item"><a class="nav-link text-danger" href="#" onclick="logoutAndRedirect()"><i class="fas fa-sign-out-alt me-1"></i>ÄÄƒng xuáº¥t</a></li>
         </ul>
     </nav>
 
@@ -27,17 +27,18 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <a href="dashboard.html" class="brand-link">
             <img src="../assets/images/logo_shop.png" alt="Logo" class="brand-image img-circle elevation-3" onerror="this.style.display='none'">
-            <span class="brand-text font-weight-light">Thần Nông Admin</span>
+            <span class="brand-text font-weight-light">Tháº§n NÃ´ng Admin</span>
         </a>
         <div class="sidebar">
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
                     <li class="nav-item"><a href="dashboard.html" class="nav-link"><i class="nav-icon fas fa-tachometer-alt"></i><p>Dashboard</p></a></li>
-                    <li class="nav-item"><a href="products.html" class="nav-link"><i class="nav-icon fas fa-box"></i><p>Sản phẩm</p></a></li>
-                    <li class="nav-item"><a href="customers.html" class="nav-link active"><i class="nav-icon fas fa-users"></i><p>Khách hàng</p></a></li>
-                    <li class="nav-item"><a href="orders.html" class="nav-link"><i class="nav-icon fas fa-shopping-bag"></i><p>Đơn hàng</p></a></li>
-                    <li class="nav-item"><a href="report-revenue.html" class="nav-link"><i class="nav-icon fas fa-chart-line"></i><p>Báo cáo doanh thu</p></a></li>
-                    <li class="nav-item"><a href="report-customer.html" class="nav-link"><i class="nav-icon fas fa-chart-bar"></i><p>Khách hàng VIP</p></a></li>
+                    <li class="nav-item"><a href="products.html" class="nav-link"><i class="nav-icon fas fa-box"></i><p>Sáº£n pháº©m</p></a></li>
+                    <li class="nav-item"><a href="customers.html" class="nav-link active"><i class="nav-icon fas fa-users"></i><p>KhÃ¡ch hÃ ng</p></a></li>
+                    <li class="nav-item"><a href="orders.html" class="nav-link"><i class="nav-icon fas fa-shopping-bag"></i><p>ÄÆ¡n hÃ ng</p></a></li>
+                    <li class="nav-item"><a href="reviews.html" class="nav-link"><i class="nav-icon fas fa-star"></i><p>Đánh giá</p></a></li>
+                    <li class="nav-item"><a href="report-revenue.html" class="nav-link"><i class="nav-icon fas fa-chart-line"></i><p>BÃ¡o cÃ¡o doanh thu</p></a></li>
+                    <li class="nav-item"><a href="report-customer.html" class="nav-link"><i class="nav-icon fas fa-chart-bar"></i><p>KhÃ¡ch hÃ ng VIP</p></a></li>
                 </ul>
             </nav>
         </div>
@@ -46,8 +47,8 @@
     <div class="content-wrapper">
         <div class="content-header">
             <div class="container-fluid d-flex justify-content-between align-items-center">
-                <h1 class="m-0">Quản Lý Khách Hàng</h1>
-                <button class="btn btn-primary" onclick="showCustomerModal()"><i class="fas fa-plus"></i> Thêm Khách Hàng</button>
+                <h1 class="m-0">Quáº£n LÃ½ KhÃ¡ch HÃ ng</h1>
+                <button class="btn btn-primary" onclick="showCustomerModal()"><i class="fas fa-plus"></i> ThÃªm KhÃ¡ch HÃ ng</button>
             </div>
         </div>
 
@@ -60,12 +61,12 @@
                                 <thead class="table-light">
                                     <tr>
                                         <th>ID</th>
-                                        <th>Họ Tên</th>
-                                        <th>Số điện thoại</th>
-                                        <th>Thành phố</th>
-                                        <th>Địa chỉ</th>
-                                        <th>Hạn mức tín dụng</th>
-                                        <th>Thao tác</th>
+                                        <th>Há» TÃªn</th>
+                                        <th>Sá»‘ Ä‘iá»‡n thoáº¡i</th>
+                                        <th>ThÃ nh phá»‘</th>
+                                        <th>Äá»‹a chá»‰</th>
+                                        <th>Háº¡n má»©c tÃ­n dá»¥ng</th>
+                                        <th>Thao tÃ¡c</th>
                                     </tr>
                                 </thead>
                                 <tbody id="customersBody">
@@ -80,57 +81,57 @@
     </div>
 </div>
 
-<!-- Modal Thêm/Sửa Khách Hàng -->
+<!-- Modal ThÃªm/Sá»­a KhÃ¡ch HÃ ng -->
 <div class="modal fade" id="customerFormModal" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-primary text-white">
-                <h5 class="modal-title" id="formModalTitle">Thêm Khách Hàng</h5>
+                <h5 class="modal-title" id="formModalTitle">ThÃªm KhÃ¡ch HÃ ng</h5>
                 <button type="button" class="close text-white" data-dismiss="modal"><span>&times;</span></button>
             </div>
             <div class="modal-body">
                 <input type="hidden" id="customerId">
                 <div class="row">
                     <div class="col-md-6 form-group">
-                        <label>Họ (First Name)</label>
+                        <label>Há» (First Name)</label>
                         <input type="text" class="form-control" id="firstName" required>
                     </div>
                     <div class="col-md-6 form-group">
-                        <label>Tên (Last Name)</label>
+                        <label>TÃªn (Last Name)</label>
                         <input type="text" class="form-control" id="lastName" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label>Số điện thoại</label>
+                    <label>Sá»‘ Ä‘iá»‡n thoáº¡i</label>
                     <input type="text" class="form-control" id="phoneNumber" required>
                 </div>
                 <div class="form-group">
-                    <label>Thành phố</label>
+                    <label>ThÃ nh phá»‘</label>
                     <input type="text" class="form-control" id="city">
                 </div>
                 <div class="form-group">
-                    <label>Địa chỉ</label>
+                    <label>Äá»‹a chá»‰</label>
                     <input type="text" class="form-control" id="address">
                 </div>
                 <div class="form-group">
-                    <label>Hạn mức tín dụng</label>
+                    <label>Háº¡n má»©c tÃ­n dá»¥ng</label>
                     <input type="number" class="form-control" id="creditLimit" value="0">
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                <button type="button" class="btn btn-primary" id="btnSaveCustomer" onclick="saveCustomer()">Lưu</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">ÄÃ³ng</button>
+                <button type="button" class="btn btn-primary" id="btnSaveCustomer" onclick="saveCustomer()">LÆ°u</button>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Modal Lịch sử Đơn hàng -->
+<!-- Modal Lá»‹ch sá»­ ÄÆ¡n hÃ ng -->
 <div class="modal fade" id="customerOrdersModal" tabindex="-1">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-info text-white">
-                <h5 class="modal-title" id="customerModalTitle">Lịch sử đơn hàng</h5>
+                <h5 class="modal-title" id="customerModalTitle">Lá»‹ch sá»­ Ä‘Æ¡n hÃ ng</h5>
                 <button type="button" class="close text-white" data-dismiss="modal"><span>&times;</span></button>
             </div>
             <div class="modal-body">
@@ -139,7 +140,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">ÄÃ³ng</button>
             </div>
         </div>
     </div>
@@ -174,25 +175,25 @@
                     <td class="small">${c.addressLine1||c.address||'---'}</td>
                     <td class="text-right">${formatCurrency(c.creditLimit||0)}</td>
                     <td class="text-center">
-                        <button class="btn btn-sm btn-info" onclick="editCustomer(${c.id}, '${c.firstName||''}', '${c.lastName||''}', '${c.phoneNumber||''}', '${c.city||''}', '${c.addressLine1||c.address||''}', ${c.creditLimit||0})" title="Sửa"><i class="fas fa-edit"></i></button>
-                        <button class="btn btn-sm btn-success" onclick="viewCustomer(${c.id}, '${c.firstName||''} ${c.lastName||''}')" title="Xem lịch sử"><i class="fas fa-eye"></i></button>
-                        <button class="btn btn-sm btn-danger" onclick="deleteCustomer(${c.id})" title="Xóa"><i class="fas fa-trash"></i></button>
+                        <button class="btn btn-sm btn-info" onclick="editCustomer(${c.id}, '${c.firstName||''}', '${c.lastName||''}', '${c.phoneNumber||''}', '${c.city||''}', '${c.addressLine1||c.address||''}', ${c.creditLimit||0})" title="Sá»­a"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-sm btn-success" onclick="viewCustomer(${c.id}, '${c.firstName||''} ${c.lastName||''}')" title="Xem lá»‹ch sá»­"><i class="fas fa-eye"></i></button>
+                        <button class="btn btn-sm btn-danger" onclick="deleteCustomer(${c.id})" title="XÃ³a"><i class="fas fa-trash"></i></button>
                     </td>
                 </tr>`).join('');
             dtTable = $('#customersTable').DataTable({
                 language: { url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/vi.json' }
             });
-        } catch (e) { Swal.fire('Lỗi', 'Không thể tải danh sách khách hàng', 'error'); }
+        } catch (e) { Swal.fire('Lá»—i', 'KhÃ´ng thá»ƒ táº£i danh sÃ¡ch khÃ¡ch hÃ ng', 'error'); }
     }
 
     async function deleteCustomer(id) {
-        if (!confirm('Bạn có chắc muốn xóa khách hàng này?')) return;
+        if (!confirm('Báº¡n cÃ³ cháº¯c muá»‘n xÃ³a khÃ¡ch hÃ ng nÃ y?')) return;
         try {
             await apiRequest(`/customers/${id}`, 'DELETE');
-            Swal.fire('Thành công', 'Đã xóa khách hàng', 'success');
+            Swal.fire('ThÃ nh cÃ´ng', 'ÄÃ£ xÃ³a khÃ¡ch hÃ ng', 'success');
             loadCustomers();
         } catch (e) {
-            Swal.fire('Lỗi', e.message || 'Không thể xóa khách hàng', 'error');
+            Swal.fire('Lá»—i', e.message || 'KhÃ´ng thá»ƒ xÃ³a khÃ¡ch hÃ ng', 'error');
         }
     }
 
@@ -204,7 +205,7 @@
         document.getElementById('city').value = '';
         document.getElementById('address').value = '';
         document.getElementById('creditLimit').value = '0';
-        document.getElementById('formModalTitle').textContent = 'Thêm Khách Hàng';
+        document.getElementById('formModalTitle').textContent = 'ThÃªm KhÃ¡ch HÃ ng';
         $('#customerFormModal').modal('show');
     }
 
@@ -216,7 +217,7 @@
         document.getElementById('city').value = city;
         document.getElementById('address').value = address;
         document.getElementById('creditLimit').value = creditLimit;
-        document.getElementById('formModalTitle').textContent = 'Sửa Khách Hàng';
+        document.getElementById('formModalTitle').textContent = 'Sá»­a KhÃ¡ch HÃ ng';
         $('#customerFormModal').modal('show');
     }
 
@@ -232,46 +233,46 @@
         };
 
         if (!data.firstName || !data.lastName || !data.phoneNumber) {
-            Swal.fire('Cảnh báo', 'Vui lòng nhập đủ Họ, Tên và SĐT', 'warning');
+            Swal.fire('Cáº£nh bÃ¡o', 'Vui lÃ²ng nháº­p Ä‘á»§ Há», TÃªn vÃ  SÄT', 'warning');
             return;
         }
 
         const btn = document.getElementById('btnSaveCustomer');
-        btn.disabled = true; btn.textContent = 'Đang lưu...';
+        btn.disabled = true; btn.textContent = 'Äang lÆ°u...';
 
         try {
             if (id) await apiRequest(`/customers/${id}`, 'PUT', data);
             else await apiRequest('/customers', 'POST', data);
             
-            Swal.fire('Thành công', 'Đã lưu thông tin khách hàng!', 'success');
+            Swal.fire('ThÃ nh cÃ´ng', 'ÄÃ£ lÆ°u thÃ´ng tin khÃ¡ch hÃ ng!', 'success');
             $('#customerFormModal').modal('hide');
             loadCustomers();
         } catch (e) {
-            Swal.fire('Lỗi', e.message || 'Không thể lưu khách hàng', 'error');
+            Swal.fire('Lá»—i', e.message || 'KhÃ´ng thá»ƒ lÆ°u khÃ¡ch hÃ ng', 'error');
         } finally {
-            btn.disabled = false; btn.textContent = 'Lưu';
+            btn.disabled = false; btn.textContent = 'LÆ°u';
         }
     }
 
     async function viewCustomer(id, name) {
-        document.getElementById('customerModalTitle').textContent = `Lịch sử đơn hàng: ${name}`;
+        document.getElementById('customerModalTitle').textContent = `Lá»‹ch sá»­ Ä‘Æ¡n hÃ ng: ${name}`;
         document.getElementById('customerOrdersBody').innerHTML = '<div class="text-center py-4"><div class="spinner-border text-info"></div></div>';
         $('#customerOrdersModal').modal('show');
         
         try {
             const orders = await apiRequest(`/orders/customer/${id}`);
             if(!orders || orders.length === 0) {
-                document.getElementById('customerOrdersBody').innerHTML = '<div class="alert alert-info">Khách hàng chưa có đơn hàng nào.</div>';
+                document.getElementById('customerOrdersBody').innerHTML = '<div class="alert alert-info">KhÃ¡ch hÃ ng chÆ°a cÃ³ Ä‘Æ¡n hÃ ng nÃ o.</div>';
                 return;
             }
             let html = `
                 <table class="table table-bordered table-striped small">
                     <thead class="table-light">
                         <tr>
-                            <th>ID Đơn</th>
-                            <th>Ngày đặt</th>
-                            <th>Trạng thái</th>
-                            <th>Ghi chú</th>
+                            <th>ID ÄÆ¡n</th>
+                            <th>NgÃ y Ä‘áº·t</th>
+                            <th>Tráº¡ng thÃ¡i</th>
+                            <th>Ghi chÃº</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -288,7 +289,7 @@
             `;
             document.getElementById('customerOrdersBody').innerHTML = html;
         } catch (e) {
-            document.getElementById('customerOrdersBody').innerHTML = '<div class="alert alert-danger">Lỗi khi tải dữ liệu</div>';
+            document.getElementById('customerOrdersBody').innerHTML = '<div class="alert alert-danger">Lá»—i khi táº£i dá»¯ liá»‡u</div>';
         }
     }
 </script>
