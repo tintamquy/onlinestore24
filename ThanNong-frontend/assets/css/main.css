@@ -1,6 +1,6 @@
 /* ============================================================
    main.css — Style chính cho trang khách hàng Shop Thần Nông
-   Màu chủ đạo: Xanh Cobalt (#3b71ca) — sang trọng, hiện đại
+   Màu chủ đạo: Nâu đất (#8b5e3c) — mộc mạc, sang trọng, tự nhiên
    ============================================================ */
 
 /* ===== 1. Google Fonts & Reset ===== */
@@ -9,17 +9,17 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-    /* ── Bảng màu Cobalt Blue chủ đạo ── */
-    --color-primary:       #3b71ca;
-    --color-primary-dark:  #285192;
-    --color-primary-light: #ebf0ff;
-    --color-accent:        #f4a021;
-    --color-accent-dark:   #d4881a;
-    --color-text:          #1e293b;
-    --color-text-light:    #64748b;
-    --color-bg:            #f0f4ff;
+    /* ── Bảng màu Nâu Đất (Earth Brown) chủ đạo ── */
+    --color-primary:       #8b5e3c;
+    --color-primary-dark:  #5c3d25;
+    --color-primary-light: #fbf8f5;
+    --color-accent:        #d4a373;
+    --color-accent-dark:   #a98467;
+    --color-text:          #2b2521;
+    --color-text-light:    #7c7068;
+    --color-bg:            #f7f3ee;
     --color-white:         #ffffff;
-    --color-border:        #d1d9f0;
+    --color-border:        #e6dfd5;
 
     /* ── Typography ── */
     --font-main:    'Inter', sans-serif;
@@ -29,9 +29,9 @@
     --radius-sm:  6px;
     --radius-md:  14px;
     --radius-lg:  22px;
-    --shadow-sm:  0 2px 12px rgba(26,86,219,.06);
-    --shadow-md:  0 8px 28px rgba(26,86,219,.12);
-    --shadow-lg:  0 16px 48px rgba(26,86,219,.16);
+    --shadow-sm:  0 2px 12px rgba(139,94,60,.06);
+    --shadow-md:  0 8px 28px rgba(139,94,60,.12);
+    --shadow-lg:  0 16px 48px rgba(139,94,60,.16);
     --transition: all .25s ease;
 }
 
@@ -70,7 +70,7 @@ body {
 
 /* ===== 3. HERO ===== */
 .hero-section {
-    background: linear-gradient(135deg, var(--color-primary) 0%, #5488de 55%, var(--color-primary-dark) 100%) !important;
+    background: linear-gradient(135deg, var(--color-primary) 0%, #a98467 55%, var(--color-primary-dark) 100%) !important;
     color: white !important;
     padding: 90px 0 70px;
     position: relative;
@@ -151,10 +151,10 @@ body {
     background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
     color: white; border: none; border-radius: var(--radius-sm);
     padding: .65rem 1.5rem; font-weight: 600; cursor: pointer; transition: var(--transition);
-    box-shadow: 0 3px 12px rgba(26,86,219,.3);
+    box-shadow: 0 3px 12px rgba(139,94,60,.3);
     text-decoration: none; display: inline-flex; align-items: center;
 }
-.btn-primary-custom:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(26,86,219,.4); color: white; }
+.btn-primary-custom:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(139,94,60,.4); color: white; }
 .btn-accent { background: var(--color-accent); color: white; border: none; border-radius: var(--radius-sm); padding: .65rem 1.5rem; font-weight: 600; cursor: pointer; transition: var(--transition); }
 .btn-accent:hover { background: var(--color-accent-dark); color: white; }
 
@@ -164,7 +164,7 @@ body {
 
 /* ===== 9. CHECKOUT ===== */
 .checkout-form-card { background: white; border-radius: var(--radius-md); padding: 2rem; box-shadow: var(--shadow-sm); }
-.checkout-order-summary { background: var(--color-primary-light); border-radius: var(--radius-md); padding: 1.5rem; border: 1px solid rgba(26,86,219,.15); }
+.checkout-order-summary { background: var(--color-primary-light); border-radius: var(--radius-md); padding: 1.5rem; border: 1px solid rgba(139,94,60,.15); }
 
 /* ===== 10. FOOTER ===== */
 .site-footer {

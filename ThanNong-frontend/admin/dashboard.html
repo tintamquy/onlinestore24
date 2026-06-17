@@ -68,7 +68,7 @@
                 <!-- STAT CARDS -->
                 <div class="row g-3 mb-4">
                     <div class="col-6 col-lg-3">
-                        <div class="small-box stat-card" style="background:linear-gradient(135deg,#3b71ca,#5488de);color:white;">
+                        <div class="small-box stat-card" style="background:linear-gradient(135deg,#8b5e3c,#a98467);color:white;">
                             <div class="inner">
                                 <h3 id="statRevenue">---</h3>
                                 <p>Doanh thu hôm nay</p>
@@ -110,7 +110,7 @@
                     <div class="col-lg-7">
                         <div class="card border-0 shadow-sm rounded-4">
                             <div class="card-header bg-white border-0 pb-0">
-                                <h5 class="fw-bold" style="color:#285192;"><i class="fas fa-chart-area me-2"></i>Doanh Thu 7 Ngày Qua</h5>
+                                <h5 class="fw-bold" style="color:#5c3d25;"><i class="fas fa-chart-area me-2"></i>Doanh Thu 7 Ngày Qua</h5>
                             </div>
                             <div class="card-body">
                                 <canvas id="revenueChart" height="120"></canvas>
@@ -120,7 +120,7 @@
                     <div class="col-lg-5">
                         <div class="card border-0 shadow-sm rounded-4 h-100">
                             <div class="card-header bg-white border-0 pb-0">
-                                <h5 class="fw-bold" style="color:#285192;"><i class="fas fa-list me-2"></i>Đơn Hàng Mới Nhất</h5>
+                                <h5 class="fw-bold" style="color:#5c3d25;"><i class="fas fa-list me-2"></i>Đơn Hàng Mới Nhất</h5>
                             </div>
                             <div class="card-body p-0">
                                 <div class="table-responsive">
@@ -135,7 +135,7 @@
                                 </div>
                             </div>
                             <div class="card-footer bg-white border-0 text-center">
-                                <a href="orders.html" style="color:#3b71ca;font-size:.85rem;">Xem tất cả đơn hàng →</a>
+                                <a href="orders.html" style="color:#8b5e3c;font-size:.85rem;">Xem tất cả đơn hàng →</a>
                             </div>
                         </div>
                     </div>
@@ -213,7 +213,7 @@
                 <tr>
                     <td class="ps-3 fw-bold text-muted small">#${o.id}</td>
                     <td class="small">${o.customerFirstName || ''} ${o.customerLastName || ''}</td>
-                    <td class="small fw-bold" style="color:#3b71ca;">${formatCurrency(o.totalAmount)}</td>
+                    <td class="small fw-bold" style="color:#8b5e3c;">${formatCurrency(o.totalAmount)}</td>
                     <td><span class="badge bg-${statusColor[o.status]||'secondary'}" style="font-size:.7rem;">${statusLabel[o.status]||o.status}</span></td>
                 </tr>`).join('');
     }
@@ -239,7 +239,7 @@
                 datasets: [{
                     label: 'Doanh thu (đ)',
                     data: days.map(d => revenueByDay[d]),
-                    borderColor: '#3b71ca',
+                    borderColor: '#8b5e3c',
                     backgroundColor: 'rgba(45,122,79,.1)',
                     borderWidth: 2,
                     tension: 0.3,

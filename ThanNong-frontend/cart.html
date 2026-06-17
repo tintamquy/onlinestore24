@@ -10,7 +10,7 @@
 </head>
 <body>
 <!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg sticky-top" style="background:linear-gradient(135deg,#3b71ca,#285192)!important;padding:.7rem 0;">
+<nav class="navbar navbar-expand-lg sticky-top" style="background:linear-gradient(135deg,#8b5e3c,#5c3d25)!important;padding:.7rem 0;">
     <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="index.html" style="text-decoration:none;">
             <div style="background:#ffffff;border-radius:50%;padding:4px;border:2px solid rgba(255,255,255,.5);margin-right:10px;flex-shrink:0;">
@@ -40,7 +40,7 @@
 </nav>
 
 <div class="container py-4">
-    <h1 style="font-family:'Playfair Display',serif;font-size:1.8rem;color:#285192;margin-bottom:1.5rem;">
+    <h1 style="font-family:'Playfair Display',serif;font-size:1.8rem;color:#5c3d25;margin-bottom:1.5rem;">
         <i class="fas fa-shopping-cart me-2"></i>Giỏ Hàng Của Bạn
     </h1>
 
@@ -49,7 +49,7 @@
         <div class="col-lg-8">
             <div id="cartContainer">
                 <div class="text-center py-5">
-                    <div class="spinner-border" style="color:#3b71ca;"></div>
+                    <div class="spinner-border" style="color:#8b5e3c;"></div>
                 </div>
             </div>
         </div>
@@ -57,7 +57,7 @@
         <!-- Tổng tiền -->
         <div class="col-lg-4">
             <div class="p-4 bg-white rounded-4 shadow-sm border" style="position:sticky;top:90px;">
-                <h5 class="fw-bold mb-3" style="color:#285192;">Tóm Tắt Đơn Hàng</h5>
+                <h5 class="fw-bold mb-3" style="color:#5c3d25;">Tóm Tắt Đơn Hàng</h5>
                 <div class="d-flex justify-content-between mb-2">
                     <span class="text-muted">Tạm tính:</span>
                     <span id="subtotalDisplay" class="fw-bold">0 đ</span>
@@ -69,9 +69,9 @@
                 <hr>
                 <div class="d-flex justify-content-between mb-4">
                     <span class="fw-bold fs-5">Tổng cộng:</span>
-                    <span id="totalDisplay" class="fw-bold fs-5" style="color:#3b71ca;">0 đ</span>
+                    <span id="totalDisplay" class="fw-bold fs-5" style="color:#8b5e3c;">0 đ</span>
                 </div>
-                <a href="checkout.html" id="checkoutBtn" class="btn w-100 py-2 fw-bold" style="background:#3b71ca;color:white;border-radius:10px;">
+                <a href="checkout.html" id="checkoutBtn" class="btn w-100 py-2 fw-bold" style="background:#8b5e3c;color:white;border-radius:10px;">
                     <i class="fas fa-credit-card me-2"></i>Đặt hàng ngay
                 </a>
                 <a href="products.html" class="btn btn-outline-secondary w-100 mt-2 py-2">
@@ -82,7 +82,7 @@
     </div>
 </div>
 
-<footer style="background:linear-gradient(135deg,#285192,#162d50);color:rgba(255,255,255,.8);padding:1.5rem 0;margin-top:3rem;">
+<footer style="background:linear-gradient(135deg,#5c3d25,#162d50);color:rgba(255,255,255,.8);padding:1.5rem 0;margin-top:3rem;">
     <div class="container text-center small">© 2024 Shop Thần Nông</div>
 </footer>
 
@@ -114,7 +114,7 @@
                     <i class="fas fa-shopping-cart fa-4x mb-3" style="color:#dee2e6;"></i>
                     <h4>Giỏ hàng trống</h4>
                     <p>Bạn chưa có sản phẩm nào trong giỏ hàng.</p>
-                    <a href="products.html" class="btn" style="background:#3b71ca;color:white;border-radius:8px;">
+                    <a href="products.html" class="btn" style="background:#8b5e3c;color:white;border-radius:8px;">
                         <i class="fas fa-shopping-bag me-1"></i>Mua sắm ngay
                     </a>
                 </div>`;
@@ -134,7 +134,7 @@
                          onerror="this.src='assets/images/products/placeholder.jpg'">
                     <div class="flex-grow-1">
                         <div class="fw-bold small">${item.productName}</div>
-                        <div style="color:#3b71ca;font-weight:700;">${formatCurrency(item.buyPrice)}</div>
+                        <div style="color:#8b5e3c;font-weight:700;">${formatCurrency(item.buyPrice)}</div>
                     </div>
                     <div class="d-flex align-items-center gap-2">
                         <button class="btn btn-sm btn-outline-secondary" style="width:30px;height:30px;padding:0;" onclick="changeQty(${item.productId}, -1)">−</button>
@@ -142,7 +142,7 @@
                         <button class="btn btn-sm btn-outline-secondary" style="width:30px;height:30px;padding:0;" onclick="changeQty(${item.productId}, 1)">+</button>
                     </div>
                     <div class="text-end" style="min-width:80px;">
-                        <div class="fw-bold small" style="color:#3b71ca;">${formatCurrency(subtotal)}</div>
+                        <div class="fw-bold small" style="color:#8b5e3c;">${formatCurrency(subtotal)}</div>
                         <button class="btn btn-sm btn-link text-danger p-0 mt-1" onclick="removeFromCart(${item.productId})">
                             <i class="fas fa-trash-alt"></i>
                         </button>

@@ -6,11 +6,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-    --admin-primary: #3b71ca;
-    --admin-accent:  #f4a021;
-    --admin-sidebar-bg: #1f3c2a;
+    --admin-primary: #8b5e3c;
+    --admin-accent:  #d4a373;
+    --admin-sidebar-bg: #3e2c1e;
     --admin-sidebar-text: rgba(255,255,255,.8);
-    --admin-sidebar-active: #3b71ca;
+    --admin-sidebar-active: #8b5e3c;
 }
 
 body, .content-wrapper {
@@ -112,7 +112,7 @@ body, .content-wrapper {
 }
 
 .btn-admin-primary:hover {
-    background: #285192;
+    background: #5c3d25;
     color: white;
     transform: translateY(-1px);
 }

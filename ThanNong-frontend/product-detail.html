@@ -10,7 +10,7 @@
 </head>
 <body>
 <!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg sticky-top" style="background:linear-gradient(135deg,#3b71ca,#285192)!important;padding:.7rem 0;">
+<nav class="navbar navbar-expand-lg sticky-top" style="background:linear-gradient(135deg,#8b5e3c,#5c3d25)!important;padding:.7rem 0;">
     <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="index.html" style="text-decoration:none;">
             <div style="background:#ffffff;border-radius:50%;padding:4px;border:2px solid rgba(255,255,255,.5);margin-right:10px;flex-shrink:0;">
@@ -43,12 +43,12 @@
 
 <div class="container py-4" id="productDetailContainer">
     <div class="text-center py-5">
-        <div class="spinner-border" style="color:#3b71ca;"></div>
+        <div class="spinner-border" style="color:#8b5e3c;"></div>
         <p class="mt-2 text-muted">Đang tải sản phẩm...</p>
     </div>
 </div>
 
-<footer style="background:linear-gradient(135deg,#285192,#162d50);color:rgba(255,255,255,.8);padding:1.5rem 0;margin-top:3rem;">
+<footer style="background:linear-gradient(135deg,#5c3d25,#162d50);color:rgba(255,255,255,.8);padding:1.5rem 0;margin-top:3rem;">
     <div class="container text-center small">© 2024 Shop Thần Nông</div>
 </footer>
 
@@ -80,8 +80,8 @@
         container.innerHTML = `
             <nav aria-label="breadcrumb" class="mb-4">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html" style="color:#3b71ca;">Trang chủ</a></li>
-                    <li class="breadcrumb-item"><a href="products.html" style="color:#3b71ca;">Sản phẩm</a></li>
+                    <li class="breadcrumb-item"><a href="index.html" style="color:#8b5e3c;">Trang chủ</a></li>
+                    <li class="breadcrumb-item"><a href="products.html" style="color:#8b5e3c;">Sản phẩm</a></li>
                     <li class="breadcrumb-item active">${p.productName}</li>
                 </ol>
             </nav>
@@ -96,14 +96,14 @@
                 </div>
                 <!-- THÔNG TIN SẢN PHẨM -->
                 <div class="col-md-7">
-                    <span style="background:#ebf0ff;color:#3b71ca;font-size:.75rem;padding:.25rem .7rem;border-radius:20px;font-weight:600;">${p.productLineName || 'Thảo Dược'}</span>
-                    <h1 style="font-family:'Playfair Display',serif;font-size:1.8rem;color:#285192;margin-top:.75rem;margin-bottom:.5rem;">${p.productName}</h1>
+                    <span style="background:#fbf8f5;color:#8b5e3c;font-size:.75rem;padding:.25rem .7rem;border-radius:20px;font-weight:600;">${p.productLineName || 'Thảo Dược'}</span>
+                    <h1 style="font-family:'Playfair Display',serif;font-size:1.8rem;color:#5c3d25;margin-top:.75rem;margin-bottom:.5rem;">${p.productName}</h1>
                     <div class="d-flex gap-3 text-muted small mb-3">
                         <span><i class="fas fa-barcode me-1"></i>Mã: ${p.productCode || 'N/A'}</span>
                         <span>|</span>
-                        <span><i class="fas fa-box me-1"></i>Còn: <strong style="color:${p.quantityInStock < 10 ? '#dc3545' : '#3b71ca'};">${p.quantityInStock}</strong></span>
+                        <span><i class="fas fa-box me-1"></i>Còn: <strong style="color:${p.quantityInStock < 10 ? '#dc3545' : '#8b5e3c'};">${p.quantityInStock}</strong></span>
                     </div>
-                    <div style="font-size:2rem;font-weight:700;color:#3b71ca;margin-bottom:1rem;">${formatCurrency(p.buyPrice)}</div>
+                    <div style="font-size:2rem;font-weight:700;color:#8b5e3c;margin-bottom:1rem;">${formatCurrency(p.buyPrice)}</div>
 
                     <!-- THÊM VÀO GIỎ -->
                     <div class="d-flex align-items-center gap-3 mt-4 pt-3 border-top flex-wrap">
@@ -112,25 +112,25 @@
                             <input type="number" id="detailQty" class="form-control text-center fw-bold" value="1" min="1" max="${p.quantityInStock}">
                             <button class="btn btn-outline-secondary" onclick="updateQty(1)">+</button>
                         </div>
-                        <button class="btn flex-grow-1 py-2 fw-bold" style="background:#3b71ca;color:white;border-radius:10px;"
+                        <button class="btn flex-grow-1 py-2 fw-bold" style="background:#8b5e3c;color:white;border-radius:10px;"
                                 onclick="addCurrentToCart(${p.id}, '${p.productName.replace(/'/g,"\\'")}', '${p.imageUrl||''}', ${p.buyPrice})">
                             <i class="fas fa-cart-plus me-2"></i>Thêm vào giỏ hàng
                         </button>
                     </div>
 
                     <!-- ĐẶC ĐIỂM NỔI BẬT -->
-                    <div class="mt-4 p-3 rounded-3" style="background:#ebf0ff;">
+                    <div class="mt-4 p-3 rounded-3" style="background:#fbf8f5;">
                         <div class="row g-3 text-center">
                             <div class="col-4">
-                                <i class="fas fa-leaf mb-1" style="color:#3b71ca;font-size:1.3rem;"></i>
+                                <i class="fas fa-leaf mb-1" style="color:#8b5e3c;font-size:1.3rem;"></i>
                                 <div class="small fw-bold">100% Thiên Nhiên</div>
                             </div>
                             <div class="col-4">
-                                <i class="fas fa-shield-alt mb-1" style="color:#3b71ca;font-size:1.3rem;"></i>
+                                <i class="fas fa-shield-alt mb-1" style="color:#8b5e3c;font-size:1.3rem;"></i>
                                 <div class="small fw-bold">An Toàn Da</div>
                             </div>
                             <div class="col-4">
-                                <i class="fas fa-truck mb-1" style="color:#3b71ca;font-size:1.3rem;"></i>
+                                <i class="fas fa-truck mb-1" style="color:#8b5e3c;font-size:1.3rem;"></i>
                                 <div class="small fw-bold">Giao Toàn Quốc</div>
                             </div>
                         </div>
@@ -143,10 +143,10 @@
                 <div class="col-12">
                     <ul class="nav nav-tabs" id="productTabs" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link active fw-bold" id="desc-tab" data-bs-toggle="tab" data-bs-target="#desc-tab-pane" type="button" role="tab" style="color:#285192;">Mô tả chi tiết</button>
+                            <button class="nav-link active fw-bold" id="desc-tab" data-bs-toggle="tab" data-bs-target="#desc-tab-pane" type="button" role="tab" style="color:#5c3d25;">Mô tả chi tiết</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link fw-bold" id="review-tab" data-bs-toggle="tab" data-bs-target="#review-tab-pane" type="button" role="tab" style="color:#285192;">Đánh giá sản phẩm</button>
+                            <button class="nav-link fw-bold" id="review-tab" data-bs-toggle="tab" data-bs-target="#review-tab-pane" type="button" role="tab" style="color:#5c3d25;">Đánh giá sản phẩm</button>
                         </li>
                     </ul>
                     <div class="tab-content border border-top-0 p-4 bg-white rounded-bottom" id="productTabsContent">
