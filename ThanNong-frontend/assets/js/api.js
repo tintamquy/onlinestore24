@@ -4,11 +4,10 @@
  */
 
 // ===== Cấu hình =====
-// Nếu chạy local thì dùng dòng này:
-// const BASE_URL = 'http://localhost:8080/api';
-
-// Đang chạy Backend trên Railway:
-const BASE_URL = 'https://onlinestore24-production.up.railway.app/api';
+// Tự động chuyển đổi giữa Local và Production tùy thuộc vào môi trường chạy:
+const BASE_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname === '')
+    ? 'http://localhost:8080/api'
+    : 'https://onlinestore24-production.up.railway.app/api';
 
 /** Key lưu JWT token trong localStorage */
 const TOKEN_KEY  = 'thanNong_token';
