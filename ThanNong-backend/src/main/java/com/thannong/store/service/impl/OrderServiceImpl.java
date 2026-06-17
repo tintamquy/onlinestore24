@@ -79,6 +79,9 @@ public class OrderServiceImpl {
         Order order = new Order();
         order.setCustomer(customer);
         order.setOrderDate(new Date());
+        // required_date mặc định là 3 ngày sau (thỏa mãn ràng buộc NOT NULL trong CSDL)
+        long threeDaysInMs = 3 * 24 * 60 * 60 * 1000L;
+        order.setRequiredDate(new Date(System.currentTimeMillis() + threeDaysInMs));
         order.setStatus("PENDING");
         order.setComments(orderDto.getComments());
         order = orderRepository.save(order);
