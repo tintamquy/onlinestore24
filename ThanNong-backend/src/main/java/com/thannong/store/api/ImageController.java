@@ -64,4 +64,20 @@ public class ImageController {
         }
     }
 
+    @GetMapping("/debug")
+    public ResponseEntity<?> debugImages() {
+        java.util.Map<String, Object> debugInfo = new java.util.HashMap<>();
+        String testFile = "dau-goi-thao-duoc-thien-nhien-vui.jpg";
+        org.springframework.core.io.ClassPathResource res = new org.springframework.core.io.ClassPathResource("default-images/" + testFile);
+        debugInfo.put("testFile", testFile);
+        debugInfo.put("exists", res.exists());
+        try {
+            debugInfo.put("url", res.getURL().toString());
+            debugInfo.put("contentLength", res.contentLength());
+        } catch (Exception e) {
+            debugInfo.put("error", e.getMessage());
+        }
+        return ResponseEntity.ok(debugInfo);
+    }
+
 }
