@@ -38,7 +38,11 @@ public class ImageController {
             Resource resource = new UrlResource(imagePath.toUri());
 
             if (!resource.exists() || !resource.isReadable()) {
-                return ResponseEntity.notFound().build();
+                // FALLBACK: Đọc ảnh mặc định từ classpath (jar) nếu không tìm thấy ở thư mục upload ngoài
+                resource = new org.springframework.core.io.ClassPathResource("default-images/" + imageName);
+                if (!resource.exists() || !resource.isReadable()) {
+                    return ResponseEntity.notFound().build();
+                }
             }
 
             // Xác định content type dựa trên đuôi file
